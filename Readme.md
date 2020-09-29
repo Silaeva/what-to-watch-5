@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Anna Silaeva](https://up.htmlacademy.ru/react/5/user/1078695).
-* Наставник: `Неизвестно`.
+* Наставник: [Иван Шалагин].
 
 ---
 
