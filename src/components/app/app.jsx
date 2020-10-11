@@ -14,17 +14,28 @@ const App = (props) => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/">
-          <MainPage promoFilm={promoFilm} films={films} />
-        </Route>
+        <Route exact
+          path="/"
+          render={({history}) => (
+            <MainPage
+              promoFilm={promoFilm}
+              films={films}
+              onFilmCardClick={(id) => history.push(`/films/${id}`)} />
+          )} />
         <Route exact path="/login">
           <SignIn />
         </Route>
         <Route exact path="/mylist">
           <MyList films={films} />
         </Route>
-        <Route exact path="/films/:id">
-          <FilmPage films={films} />
+        <Route exact
+          path="/films/"
+          render={({history}) => (
+            <FilmPage
+              onFilmCardClick={(id) => history.push(`/${id}`)}
+              films={films} />
+          )}
+        >
         </Route>
         <Route exact path="/films/:id/review">
           <AddReview promoFilm={promoFilm} />

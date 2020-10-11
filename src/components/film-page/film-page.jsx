@@ -23,7 +23,7 @@ class FilmPage extends PureComponent {
   }
 
   render() {
-    const {films} = this.props;
+    const {films, onFilmCardClick} = this.props;
     const {title, genre, year, image, rating, description, director, actors, duration, reviews} = films[0];
 
     const getFilmPageContent = () => {
@@ -161,7 +161,7 @@ class FilmPage extends PureComponent {
           <section className="catalog catalog--like-this">
             <h2 className="catalog__title">More like this</h2>
 
-            <FilmCardList films={films.slice(0, 4)} />
+            <FilmCardList onFilmCardClick={onFilmCardClick} films={films.slice(0, 4)} />
 
           </section>
 
@@ -185,6 +185,7 @@ class FilmPage extends PureComponent {
 }
 
 FilmPage.propTypes = {
+  onFilmCardClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,

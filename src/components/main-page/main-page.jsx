@@ -4,7 +4,7 @@ import FilmCardList from "../film-cards-list/film-card-list";
 import {Link} from "react-router-dom";
 
 const MainPage = (props) => {
-  const {promoFilm, films} = props;
+  const {promoFilm, films, onFilmCardClick} = props;
   const {title, image, genre, year, bgImage} = promoFilm;
 
   return (
@@ -101,7 +101,7 @@ const MainPage = (props) => {
             </li>
           </ul>
 
-          <FilmCardList films={films} />
+          <FilmCardList films={films} onFilmCardClick={onFilmCardClick} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>
@@ -134,7 +134,8 @@ MainPage.propTypes = {
     image: PropTypes.string.isRequired,
     bgImage: PropTypes.string.isRequired
   }),
-  films: PropTypes.array.isRequired
+  films: PropTypes.array.isRequired,
+  onFilmCardClick: PropTypes.func.isRequired
 };
 
 export default MainPage;

@@ -20,7 +20,7 @@ class FilmCardList extends PureComponent {
   }
 
   render() {
-    const {films} = this.props;
+    const {films, onFilmCardClick} = this.props;
 
     return (
       <div className="catalog__movies-list">
@@ -32,6 +32,7 @@ class FilmCardList extends PureComponent {
               title={film.title}
               image={film.image}
               onHover={this._handleActiveCard}
+              onFilmCardClick={onFilmCardClick}
             />
           );
         })}
@@ -41,10 +42,12 @@ class FilmCardList extends PureComponent {
 }
 
 FilmCardList.propTypes = {
+  onFilmCardClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired
+
   })
 
   )
