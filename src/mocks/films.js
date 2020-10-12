@@ -38,6 +38,7 @@ const generateFilmInfo = () => {
 const films = new Array(FILMS_COUNT).fill().map(generateFilmInfo);
 
 const promoFilm = {
+  id: nanoid(),
   title: `The Grand Budapest Hotel poster`,
   image: `/img/the-grand-budapest-hotel-poster.jpg`,
   genre: `Drama`,

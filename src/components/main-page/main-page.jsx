@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import FilmCardList from "../film-cards-list/film-card-list";
 import {Link} from "react-router-dom";
+import FilmCardList from "../film-cards-list/film-card-list";
+import PageFooter from "../page-footer/page-footer";
+import UserBlock from "../user-block/user-block";
 
 const MainPage = (props) => {
   const {promoFilm, films, onFilmCardClick} = props;
-  const {title, image, genre, year, bgImage} = promoFilm;
+  const {title, image, genre, year, bgImage, id} = promoFilm;
 
   return (
     <div>
@@ -25,11 +27,8 @@ const MainPage = (props) => {
             </a>
           </div>
 
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
+          <UserBlock />
+
         </header>
 
         <div className="movie-card__wrap">
@@ -46,12 +45,12 @@ const MainPage = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <button className="btn btn--play movie-card__button" type="button">
+                <Link to={`/player/${id}/`} className="btn btn--play movie-card__button" type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
                   <span>Play</span>
-                </button>
+                </Link>
                 <Link to="/mylist" className="btn btn--list movie-card__button" type="button">
                   <svg viewBox="0 0 19 20" width="19" height="20">
                     <use xlinkHref="#add"></use>
@@ -108,19 +107,8 @@ const MainPage = (props) => {
           </div>
         </section>
 
-        <footer className="page-footer">
-          <div className="logo">
-            <a className="logo__link logo__link--light">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
+        <PageFooter />
 
-          <div className="copyright">
-            <p>© 2019 What to watch Ltd.</p>
-          </div>
-        </footer>
       </div>
     </div>
   );
@@ -132,7 +120,8 @@ MainPage.propTypes = {
     genre: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
-    bgImage: PropTypes.string.isRequired
+    bgImage: PropTypes.string.isRequired,
+    id: PropTypes.string.isRequired
   }),
   films: PropTypes.array.isRequired,
   onFilmCardClick: PropTypes.func.isRequired

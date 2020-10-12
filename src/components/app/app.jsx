@@ -25,15 +25,22 @@ const App = (props) => {
         <Route exact path="/login">
           <SignIn />
         </Route>
-        <Route exact path="/mylist">
-          <MyList films={films} />
-        </Route>
         <Route exact
-          path="/films/"
+          path="/mylist"
+          render={({history}) => (
+            <MyList
+              films={films}
+              onFilmCardClick={(id) => history.push(`/films/${id}`)}
+            />
+          )}
+        />
+        <Route exact
+          path="/films/:id"
           render={({history}) => (
             <FilmPage
-              onFilmCardClick={(id) => history.push(`/${id}`)}
-              films={films} />
+              films={films}
+              onFilmCardClick={(id) => history.push(`/films/${id}`)}
+            />
           )}
         >
         </Route>
