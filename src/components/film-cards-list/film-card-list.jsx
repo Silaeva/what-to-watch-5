@@ -11,11 +11,18 @@ class FilmCardList extends PureComponent {
     };
 
     this._handleActiveCard = this._handleActiveCard.bind(this);
+    this._handleMouseLeave = this._handleMouseLeave.bind(this);
   }
 
   _handleActiveCard(id) {
     this.setState({
       activeCard: id
+    });
+  }
+
+  _handleMouseLeave() {
+    this.setState({
+      activeCard: ``
     });
   }
 
@@ -31,8 +38,11 @@ class FilmCardList extends PureComponent {
               key={film.id}
               title={film.title}
               image={film.image}
-              onHover={this._handleActiveCard}
+              onMouseEnter={this._handleActiveCard}
+              onMouseLeave={this._handleMouseLeave}
               onFilmCardClick={onFilmCardClick}
+              srcVideo={film.srcVideo}
+              isPlaying={film.id === this.state.activeCard}
             />
           );
         })}
