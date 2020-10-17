@@ -10,17 +10,23 @@ class FilmCardList extends PureComponent {
       activeCard: ``,
     };
 
+    this._hoverTimeout = null;
+
     this._handleActiveCard = this._handleActiveCard.bind(this);
     this._handleMouseLeave = this._handleMouseLeave.bind(this);
   }
 
   _handleActiveCard(id) {
-    this.setState({
-      activeCard: id
-    });
+    this._hoverTimeout = setTimeout(() =>
+      this.setState({
+        activeCard: id
+      }), 1000);
   }
 
   _handleMouseLeave() {
+    clearTimeout(this._hoverTimeout);
+    this._hoverTimeout = null;
+
     this.setState({
       activeCard: ``
     });
