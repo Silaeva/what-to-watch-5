@@ -6,8 +6,11 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 
 const AddReview = (props) => {
-  const {promoFilm} = props;
-  const {bgImage, title, image} = promoFilm;
+  const {films, currentFilmId} = props;
+
+  const currentFilm = films.find((film) => film.id === currentFilmId);
+
+  const {bgImage, title, image} = currentFilm;
 
   return (
     <section className="movie-card movie-card--full">
@@ -52,11 +55,12 @@ const AddReview = (props) => {
 };
 
 AddReview.propTypes = {
-  promoFilm: PropTypes.shape({
+  currentFilmId: PropTypes.string.isRequired,
+  films: PropTypes.arrayOf(PropTypes.shape({
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     bgImage: PropTypes.string.isRequired
-  })
+  }))
 };
 
 export default AddReview;

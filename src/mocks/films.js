@@ -32,7 +32,8 @@ const generateFilmInfo = () => {
       score: getRating(0, 10),
       count: getRandomInteger(1, 500)
     },
-    reviews: getReviews(getRandomInteger(1, 6))
+    reviews: getReviews(getRandomInteger(1, 6)),
+    bgImage: `/img/bg-the-grand-budapest-hotel.jpg`
   };
 };
 
