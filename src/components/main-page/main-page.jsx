@@ -5,9 +5,15 @@ import FilmCardList from "../film-cards-list/film-card-list";
 import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
 
+const filmsCount = {
+  PER_STEP: 8
+};
+
 const MainPage = (props) => {
   const {promoFilm, films, onFilmCardClick} = props;
   const {title, image, genre, year, bgImage, id} = promoFilm;
+
+  const renderedFilms = films.slice(0, filmsCount.PER_STEP);
 
   return (
     <div>
@@ -100,7 +106,7 @@ const MainPage = (props) => {
             </li>
           </ul>
 
-          <FilmCardList films={films} onFilmCardClick={onFilmCardClick} />
+          <FilmCardList films={renderedFilms} onFilmCardClick={onFilmCardClick} />
 
           <div className="catalog__more">
             <button className="catalog__button" type="button">Show more</button>

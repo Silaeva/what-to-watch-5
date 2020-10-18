@@ -1,5 +1,5 @@
 
-const FILMS_COUNT = 8;
+const FILMS_COUNT = 100;
 
 const TITLES = [
   `Fantastic Beasts: The Crimes of Grindelwald`,
