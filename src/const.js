@@ -1,5 +1,8 @@
 
-const FILMS_COUNT = 100;
+const filmsCount = {
+  ALL: 100,
+  PER_STEP: 8
+};
 
 const TITLES = [
   `Fantastic Beasts: The Crimes of Grindelwald`,
@@ -44,4 +47,4 @@ const TEXTS = [
 
 const USER_NAMES = [`Dumbledore`, `Harry Potter`, `Tyler Durden`, `Yoda`, `Ferris Bueller`, `Joker`, `Captain America`, `Gandhi`, `Forrest Gump`];
 
-export {FILMS_COUNT, TITLES, IMAGES, GENRES, DIRECTORS, ACTORS, TEXTS, USER_NAMES};
+export {filmsCount, TITLES, IMAGES, GENRES, DIRECTORS, ACTORS, TEXTS, USER_NAMES};

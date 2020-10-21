@@ -1,5 +1,5 @@
 import {nanoid} from 'nanoid';
-import {FILMS_COUNT, TITLES, IMAGES, GENRES, DIRECTORS, ACTORS, TEXTS, USER_NAMES} from "../const";
+import {filmsCount, TITLES, IMAGES, GENRES, DIRECTORS, ACTORS, TEXTS, USER_NAMES} from "../const";
 import {getRandomInteger, getRandomItem, getRandomArray, formatFilmDuration, getRating, getRandomDate, formatDate} from "../utils";
 
 
@@ -37,7 +37,7 @@ const generateFilmInfo = () => {
   };
 };
 
-const films = new Array(FILMS_COUNT).fill().map(generateFilmInfo);
+const films = new Array(filmsCount.ALL).fill().map(generateFilmInfo);
 
 const promoFilm = {
   id: nanoid(),

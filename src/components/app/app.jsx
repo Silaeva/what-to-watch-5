@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
+import {connect} from "react-redux";
+import {ActionCreator} from "../../store/action";
 import MainPage from "../main-page/main-page";
 import SignIn from "../sign-in/sign-in";
 import MyList from "../my-list/my-list";
@@ -9,7 +11,7 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 
 const App = (props) => {
-  const {promoFilm, films} = props;
+  const {promoFilm, films, filteredFilms, activeGenre, onGenreClick} = props;
 
   return (
     <BrowserRouter>
@@ -20,7 +22,11 @@ const App = (props) => {
             <MainPage
               promoFilm={promoFilm}
               films={films}
-              onFilmCardClick={(id) => history.push(`/films/${id}`)} />
+              filteredFilms={filteredFilms}
+              onFilmCardClick={(id) => history.push(`/films/${id}`)}
+              activeGenre={activeGenre}
+              onGenreClick={onGenreClick}
+            />
           )} />
         <Route exact path="/login">
           <SignIn />
@@ -61,9 +67,26 @@ const App = (props) => {
   );
 };
 
+const mapStateToProps = (state) => ({
+  films: state.films,
+  filteredFilms: state.filteredFilms,
+  activeGenre: state.activeGenre,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  onGenreClick(activeGenre) {
+    dispatch(ActionCreator.changeFilter(activeGenre));
+    dispatch(ActionCreator.getFilmsByGenre(activeGenre));
+  }
+});
+
 App.propTypes = {
+  films: PropTypes.array.isRequired,
+  filteredFilms: PropTypes.array.isRequired,
   promoFilm: PropTypes.object.isRequired,
-  films: PropTypes.array.isRequired
+  activeGenre: PropTypes.string.isRequired,
+  onGenreClick: PropTypes.func.isRequired
 };
 
-export default App;
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);

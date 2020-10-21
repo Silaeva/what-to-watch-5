@@ -4,16 +4,14 @@ import {Link} from "react-router-dom";
 import FilmCardList from "../film-cards-list/film-card-list";
 import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
-
-const filmsCount = {
-  PER_STEP: 8
-};
+import GenresList from "../genres-list/genres-list";
+import {filmsCount} from "../../const";
 
 const MainPage = (props) => {
-  const {promoFilm, films, onFilmCardClick} = props;
+  const {promoFilm, films, filteredFilms, onFilmCardClick, activeGenre, onGenreClick} = props;
   const {title, image, genre, year, bgImage, id} = promoFilm;
 
-  const renderedFilms = films.slice(0, filmsCount.PER_STEP);
+  const renderedFilms = filteredFilms.slice(0, filmsCount.PER_STEP);
 
   return (
     <div>
@@ -73,38 +71,7 @@ const MainPage = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <ul className="catalog__genres-list">
-            <li className="catalog__genres-item catalog__genres-item--active">
-              <a href="#" className="catalog__genres-link">All genres</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Comedies</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Crime</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Documentary</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Dramas</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Horror</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Kids & Family</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Romance</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Sci-Fi</a>
-            </li>
-            <li className="catalog__genres-item">
-              <a href="#" className="catalog__genres-link">Thrillers</a>
-            </li>
-          </ul>
+          <GenresList films={films} activeGenre={activeGenre} onGenreClick={onGenreClick} />
 
           <FilmCardList films={renderedFilms} onFilmCardClick={onFilmCardClick} />
 
@@ -130,7 +97,10 @@ MainPage.propTypes = {
     id: PropTypes.string.isRequired
   }),
   films: PropTypes.array.isRequired,
-  onFilmCardClick: PropTypes.func.isRequired
+  filteredFilms: PropTypes.array.isRequired,
+  onFilmCardClick: PropTypes.func.isRequired,
+  activeGenre: PropTypes.string.isRequired,
+  onGenreClick: PropTypes.func.isRequired
 };
 
 export default MainPage;
