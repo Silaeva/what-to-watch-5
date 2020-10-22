@@ -65,7 +65,8 @@ class Tabs extends PureComponent {
                     key={i}
                     className={value === this.state.filmNav ? `movie-nav__item movie-nav__item--active` : `movie-nav__item`}>
                     <a
-                      onClick={() => {
+                      onClick={(evt) => {
+                        evt.preventDefault();
                         this.setState({
                           filmNav: value,
                         });

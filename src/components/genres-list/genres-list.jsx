@@ -30,7 +30,12 @@ const GenresList = (props) => {
           return (
             <li key={genre + i} className={getGenreItemClass(genre)}>
               <a
-                onClick={() => onGenreClick(genre)} href="#" className="catalog__genres-link">{getGenreName(genre)}</a>
+                onClick={(evt) => {
+                  evt.preventDefault();
+                  onGenreClick(genre);
+                }}
+                href="#"
+                className="catalog__genres-link">{getGenreName(genre)}</a>
             </li>
           );
         })
