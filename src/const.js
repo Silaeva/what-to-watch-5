@@ -1,7 +1,8 @@
 
 const filmsCount = {
   ALL: 100,
-  PER_STEP: 8
+  PER_STEP: 8,
+  SIMILAR: 4
 };
 
 const TITLES = [

@@ -4,6 +4,7 @@ import FilmCardList from "../film-cards-list/film-card-list";
 import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
+import {connect} from "react-redux";
 
 const MyList = (props) => {
   const {films, onFilmCardClick} = props;
@@ -38,4 +39,9 @@ MyList.propTypes = {
   onFilmCardClick: PropTypes.func.isRequired
 };
 
-export default MyList;
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
+
+export {MyList};
+export default connect(mapStateToProps)(MyList);

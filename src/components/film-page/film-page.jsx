@@ -6,7 +6,8 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import Tabs from "../tabs/tabs";
-
+import {filmsCount} from "../../const";
+import {connect} from "react-redux";
 
 const FilmPage = (props) => {
   const {films, onFilmCardClick, currentFilmId} = props;
@@ -15,7 +16,7 @@ const FilmPage = (props) => {
 
   const {title, genre, year, image, id} = currentFilm;
 
-  const similarFilms = films.filter((film) => film.genre === genre).slice(0, 4);
+  const similarFilms = films.filter((film) => film.genre === genre).slice(0, filmsCount.SIMILAR);
 
   return (
 
@@ -102,4 +103,9 @@ FilmPage.propTypes = {
   }))
 };
 
-export default FilmPage;
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
+
+export {FilmPage};
+export default connect(mapStateToProps)(FilmPage);

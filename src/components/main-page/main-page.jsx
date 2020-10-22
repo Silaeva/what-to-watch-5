@@ -6,9 +6,10 @@ import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
 import GenresList from "../genres-list/genres-list";
 import {filmsCount} from "../../const";
+import {connect} from "react-redux";
 
 const MainPage = (props) => {
-  const {promoFilm, films, filteredFilms, onFilmCardClick, activeGenre, onGenreClick} = props;
+  const {filteredFilms, promoFilm, onFilmCardClick} = props;
   const {title, image, genre, year, bgImage, id} = promoFilm;
 
   const renderedFilms = filteredFilms.slice(0, filmsCount.PER_STEP);
@@ -71,7 +72,7 @@ const MainPage = (props) => {
         <section className="catalog">
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-          <GenresList films={films} activeGenre={activeGenre} onGenreClick={onGenreClick} />
+          <GenresList />
 
           <FilmCardList films={renderedFilms} onFilmCardClick={onFilmCardClick} />
 
@@ -88,6 +89,7 @@ const MainPage = (props) => {
 };
 
 MainPage.propTypes = {
+  filteredFilms: PropTypes.array.isRequired,
   promoFilm: PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
@@ -96,11 +98,12 @@ MainPage.propTypes = {
     bgImage: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired
   }),
-  films: PropTypes.array.isRequired,
-  filteredFilms: PropTypes.array.isRequired,
   onFilmCardClick: PropTypes.func.isRequired,
-  activeGenre: PropTypes.string.isRequired,
-  onGenreClick: PropTypes.func.isRequired
 };
 
-export default MainPage;
+const mapStateToProps = (state) => ({
+  filteredFilms: state.filteredFilms,
+});
+
+export {MainPage};
+export default connect(mapStateToProps)(MainPage);

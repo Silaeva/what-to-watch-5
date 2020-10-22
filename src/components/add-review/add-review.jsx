@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import AddReviewForm from "../add-review-form/add-review-form";
 import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
+import {connect} from "react-redux";
 
 const AddReview = (props) => {
   const {films, currentFilmId} = props;
@@ -63,4 +64,9 @@ AddReview.propTypes = {
   }))
 };
 
-export default AddReview;
+const mapStateToProps = (state) => ({
+  films: state.films,
+});
+
+export {AddReview};
+export default connect(mapStateToProps)(AddReview);
