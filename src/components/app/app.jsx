@@ -9,7 +9,7 @@ import AddReview from "../add-review/add-review";
 import Player from "../player/player";
 
 const App = (props) => {
-  const {promoFilm, films} = props;
+  const {promoFilm} = props;
 
   return (
     <BrowserRouter>
@@ -19,8 +19,8 @@ const App = (props) => {
           render={({history}) => (
             <MainPage
               promoFilm={promoFilm}
-              films={films}
-              onFilmCardClick={(id) => history.push(`/films/${id}`)} />
+              onFilmCardClick={(id) => history.push(`/films/${id}`)}
+            />
           )} />
         <Route exact path="/login">
           <SignIn />
@@ -29,7 +29,6 @@ const App = (props) => {
           path="/mylist"
           render={({history}) => (
             <MyList
-              films={films}
               onFilmCardClick={(id) => history.push(`/films/${id}`)}
             />
           )}
@@ -39,7 +38,6 @@ const App = (props) => {
           render={({history, match}) => (
             <FilmPage
               currentFilmId={match.params.id}
-              films={films}
               onFilmCardClick={(id) => history.push(`/films/${id}`)}
             />
           )}
@@ -50,7 +48,7 @@ const App = (props) => {
           render={({match}) => (
             <AddReview
               currentFilmId={match.params.id}
-              films={films} />
+            />
           )}
         />
         <Route exact path="/player/:id">
@@ -63,7 +61,6 @@ const App = (props) => {
 
 App.propTypes = {
   promoFilm: PropTypes.object.isRequired,
-  films: PropTypes.array.isRequired
 };
 
 export default App;

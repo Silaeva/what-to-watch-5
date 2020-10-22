@@ -63,10 +63,7 @@ FilmCardList.propTypes = {
     id: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired
-
-  })
-
-  )
+  }))
 };
 
 export default FilmCardList;
