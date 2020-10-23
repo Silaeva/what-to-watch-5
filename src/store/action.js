@@ -1,6 +1,8 @@
 const ActionType = {
   CHANGE_FILTER: `CHANGE_FILTER`,
   GET_FILMS_BY_GENRE: `GET_FILMS_BY_GENRE`,
+  CLEAR_SHOWN_FILMS: `CLEAR_SHOWN_FILMS`,
+  SHOW_MORE_FILMS: `SHOW_MORE_FILMS`
 };
 
 const ActionCreator = {
@@ -11,6 +13,12 @@ const ActionCreator = {
   getFilmsByGenre: (genre) => ({
     type: ActionType.GET_FILMS_BY_GENRE,
     payload: genre
+  }),
+  clearShownFilms: () => ({
+    type: ActionType.CLEAR_SHOWN_FILMS,
+  }),
+  showMoreFilms: () => ({
+    type: ActionType.SHOW_MORE_FILMS,
   })
 };
 
