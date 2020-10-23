@@ -5,14 +5,14 @@ import FilmCardList from "../film-cards-list/film-card-list";
 import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
 import GenresList from "../genres-list/genres-list";
-import {filmsCount} from "../../const";
+import ShowMoreButton from "../show-more-button/show-more-button";
 import {connect} from "react-redux";
 
 const MainPage = (props) => {
-  const {filteredFilms, promoFilm, onFilmCardClick} = props;
+  const {filteredFilms, promoFilm, onFilmCardClick, shownFilmsNumber} = props;
   const {title, image, genre, year, bgImage, id} = promoFilm;
 
-  const renderedFilms = filteredFilms.slice(0, filmsCount.PER_STEP);
+  const renderedFilms = filteredFilms.slice(0, shownFilmsNumber);
 
   return (
     <div>
@@ -76,9 +76,10 @@ const MainPage = (props) => {
 
           <FilmCardList films={renderedFilms} onFilmCardClick={onFilmCardClick} />
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          {
+            shownFilmsNumber < filteredFilms.length && <ShowMoreButton />
+          }
+
         </section>
 
         <PageFooter />
@@ -99,10 +100,12 @@ MainPage.propTypes = {
     id: PropTypes.string.isRequired
   }),
   onFilmCardClick: PropTypes.func.isRequired,
+  shownFilmsNumber: PropTypes.number.isRequired
 };
 
 const mapStateToProps = (state) => ({
   filteredFilms: state.filteredFilms,
+  shownFilmsNumber: state.shownFilmsNumber
 });
 
 export {MainPage};
