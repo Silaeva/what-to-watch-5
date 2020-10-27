@@ -8,6 +8,10 @@ import GenresList from "../genres-list/genres-list";
 import ShowMoreButton from "../show-more-button/show-more-button";
 import {connect} from "react-redux";
 
+import withActiveCard from "../../hocs/with-active-card/with-active-card";
+
+const FilmCardListWrapped = withActiveCard(FilmCardList);
+
 const MainPage = (props) => {
   const {filteredFilms, promoFilm, onFilmCardClick, shownFilmsNumber} = props;
   const {title, image, genre, year, bgImage, id} = promoFilm;
@@ -74,7 +78,7 @@ const MainPage = (props) => {
 
           <GenresList />
 
-          <FilmCardList films={renderedFilms} onFilmCardClick={onFilmCardClick} />
+          <FilmCardListWrapped films={renderedFilms} onFilmCardClick={onFilmCardClick} />
 
           {
             shownFilmsNumber < filteredFilms.length && <ShowMoreButton />

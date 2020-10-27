@@ -6,6 +6,10 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import {connect} from "react-redux";
 
+import withUserReview from "../../hocs/with-user-review/with-user-review";
+
+const AddReviewFormWrapped = withUserReview(AddReviewForm);
+
 const AddReview = (props) => {
   const {films, currentFilmId} = props;
 
@@ -47,7 +51,7 @@ const AddReview = (props) => {
 
       <div className="add-review">
 
-        <AddReviewForm />
+        <AddReviewFormWrapped />
 
       </div>
 

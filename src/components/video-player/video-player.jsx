@@ -2,17 +2,17 @@ import React, {createRef, useEffect} from "react";
 import PropTypes from "prop-types";
 
 const VideoPlayer = (props) => {
-  const {srcVideo, image, isPlaying} = props;
+  const {srcVideo, image, isActive} = props;
 
   const videoRef = createRef();
 
   useEffect(() => {
-    if (isPlaying) {
+    if (isActive) {
       videoRef.current.play();
     } else {
       videoRef.current.load();
     }
-  }, [isPlaying]);
+  }, [isActive]);
 
   return (
     <video
@@ -31,7 +31,7 @@ const VideoPlayer = (props) => {
 VideoPlayer.propTypes = {
   srcVideo: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  isPlaying: PropTypes.bool.isRequired
+  isActive: PropTypes.bool.isRequired
 };
 
 export default VideoPlayer;
