@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 import VideoPlayer from "../video-player/video-player";
 
 const FilmCard = (props) => {
-  const {image, title, onMouseEnter, onMouseLeave, id, onFilmCardClick, srcVideo, isPlaying} = props;
+  const {image, title, onMouseEnter, onMouseLeave, id, onFilmCardClick, srcVideo, isActive} = props;
 
   return (
     <article
@@ -14,8 +14,7 @@ const FilmCard = (props) => {
       onClick={() => onFilmCardClick(id)}
       className="small-movie-card catalog__movies-card"
     >
-
-      <VideoPlayer srcVideo={srcVideo} image={image} isPlaying={isPlaying} />
+      <VideoPlayer srcVideo={srcVideo} image={image} isActive={isActive} />
 
       <h3 className="small-movie-card__title">
         <Link to={`/films/${id}`} className="small-movie-card__link">{title}</Link>
@@ -32,7 +31,7 @@ FilmCard.propTypes = {
   id: PropTypes.string.isRequired,
   onFilmCardClick: PropTypes.func.isRequired,
   srcVideo: PropTypes.string.isRequired,
-  isPlaying: PropTypes.bool.isRequired
+  isActive: PropTypes.bool.isRequired
 };
 
-export default FilmCard;
+export default React.memo(FilmCard);

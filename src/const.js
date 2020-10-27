@@ -5,6 +5,12 @@ const filmsCount = {
   SIMILAR: 4
 };
 
+const FilmTab = {
+  OVERVIEW: `Overview`,
+  DETAILS: `Details`,
+  REVIEWS: `Reviews`
+};
+
 const TITLES = [
   `Fantastic Beasts: The Crimes of Grindelwald`,
   `Bohemian Rhapsody`,
@@ -48,4 +54,4 @@ const TEXTS = [
 
 const USER_NAMES = [`Dumbledore`, `Harry Potter`, `Tyler Durden`, `Yoda`, `Ferris Bueller`, `Joker`, `Captain America`, `Gandhi`, `Forrest Gump`];
 
-export {filmsCount, TITLES, IMAGES, GENRES, DIRECTORS, ACTORS, TEXTS, USER_NAMES};
+export {filmsCount, FilmTab, TITLES, IMAGES, GENRES, DIRECTORS, ACTORS, TEXTS, USER_NAMES};

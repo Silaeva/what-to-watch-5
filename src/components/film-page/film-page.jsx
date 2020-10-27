@@ -9,6 +9,12 @@ import Tabs from "../tabs/tabs";
 import {filmsCount} from "../../const";
 import {connect} from "react-redux";
 
+import withActiveCard from "../../hocs/with-active-card/with-active-card";
+import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
+
+const FilmCardListWrapped = withActiveCard(FilmCardList);
+const TabsWrapped = withActiveTab(Tabs);
+
 const FilmPage = (props) => {
   const {films, onFilmCardClick, currentFilmId} = props;
 
@@ -70,7 +76,7 @@ const FilmPage = (props) => {
               <img src={image} alt={title} width="218" height="327" />
             </div>
 
-            <Tabs film={currentFilm} />
+            <TabsWrapped film={currentFilm} />
 
           </div>
         </div>
@@ -80,7 +86,7 @@ const FilmPage = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmCardList onFilmCardClick={onFilmCardClick} films={similarFilms} />
+          <FilmCardListWrapped onFilmCardClick={onFilmCardClick} films={similarFilms} />
 
         </section>
 

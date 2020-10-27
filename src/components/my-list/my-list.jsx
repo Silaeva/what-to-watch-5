@@ -6,6 +6,10 @@ import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import {connect} from "react-redux";
 
+import withActiveCard from "../../hocs/with-active-card/with-active-card";
+
+const FilmCardListWrapped = withActiveCard(FilmCardList);
+
 const MyList = (props) => {
   const {films, onFilmCardClick} = props;
 
@@ -24,7 +28,7 @@ const MyList = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmCardList films={films} onFilmCardClick={onFilmCardClick} />
+        <FilmCardListWrapped films={films} onFilmCardClick={onFilmCardClick} />
 
       </section>
 

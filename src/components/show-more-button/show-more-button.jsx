@@ -11,7 +11,7 @@ const ShowMoreButton = (props) => {
       <button
         className="catalog__button"
         type="button"
-        onClick={() => onShowMoreBtnClick()}
+        onClick={onShowMoreBtnClick}
       >Show more</button>
 
     </div>

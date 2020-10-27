@@ -1,18 +1,14 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
-import FilmCardList from "../film-cards-list/film-card-list";
+import FilmCardListWithBtn from "../film-cards-list/film-card-list-with-btn";
 import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
 import GenresList from "../genres-list/genres-list";
-import ShowMoreButton from "../show-more-button/show-more-button";
-import {connect} from "react-redux";
 
 const MainPage = (props) => {
-  const {filteredFilms, promoFilm, onFilmCardClick, shownFilmsNumber} = props;
+  const {promoFilm, onFilmCardClick} = props;
   const {title, image, genre, year, bgImage, id} = promoFilm;
-
-  const renderedFilms = filteredFilms.slice(0, shownFilmsNumber);
 
   return (
     <div>
@@ -74,11 +70,7 @@ const MainPage = (props) => {
 
           <GenresList />
 
-          <FilmCardList films={renderedFilms} onFilmCardClick={onFilmCardClick} />
-
-          {
-            shownFilmsNumber < filteredFilms.length && <ShowMoreButton />
-          }
+          <FilmCardListWithBtn onFilmCardClick={onFilmCardClick} />
 
         </section>
 
@@ -90,7 +82,6 @@ const MainPage = (props) => {
 };
 
 MainPage.propTypes = {
-  filteredFilms: PropTypes.array.isRequired,
   promoFilm: PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
@@ -99,14 +90,7 @@ MainPage.propTypes = {
     bgImage: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired
   }),
-  onFilmCardClick: PropTypes.func.isRequired,
-  shownFilmsNumber: PropTypes.number.isRequired
+  onFilmCardClick: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  filteredFilms: state.filteredFilms,
-  shownFilmsNumber: state.shownFilmsNumber
-});
-
-export {MainPage};
-export default connect(mapStateToProps)(MainPage);
+export default MainPage;
