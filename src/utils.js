@@ -55,4 +55,12 @@ const getRatingLevel = (score) => {
   return ratingLevel;
 };
 
-export {getRandomInteger, getRandomItem, getRandomArray, formatFilmDuration, getRating, getRandomDate, formatDate, getRatingLevel};
+const addZero = (n) => n < 10 ? `0` + n : n;
+
+const getElapsedTime = (duration, progress) => {
+  const minutesElapsed = Math.floor((duration - progress) / 60);
+  const secondsElapsed = Math.floor((duration - progress) % 60);
+  return `${addZero(minutesElapsed)}:${addZero(secondsElapsed)}`;
+};
+
+export {getRandomInteger, getRandomItem, getRandomArray, formatFilmDuration, getRating, getRandomDate, formatDate, getRatingLevel, getElapsedTime};
