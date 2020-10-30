@@ -1,4 +1,5 @@
 import {films} from "../mocks/films";
+import {promoFilm} from "../mocks/films";
 import {ActionType} from "./action";
 import {filmsCount} from "../const";
 
@@ -6,6 +7,7 @@ const initialState = {
   activeGenre: `All genres`,
   filteredFilms: films,
   films,
+  promoFilm,
   shownFilmsNumber: filmsCount.PER_STEP,
 };
 

@@ -1,16 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 import {Switch, Route, BrowserRouter} from "react-router-dom";
 import MainPage from "../main-page/main-page";
 import SignIn from "../sign-in/sign-in";
 import MyList from "../my-list/my-list";
 import FilmPage from "../film-page/film-page";
 import AddReview from "../add-review/add-review";
-import Player from "../player/player";
+import VideoPlayer from "../player/player";
 
-const App = (props) => {
-  const {promoFilm} = props;
+import withFullscreenPlayer from "../../hocs/with-fullscreen-player/with-fullscreen-player";
 
+const Player = withFullscreenPlayer(VideoPlayer);
+
+const App = () => {
   return (
     <BrowserRouter>
       <Switch>
@@ -18,7 +19,6 @@ const App = (props) => {
           path="/"
           render={({history}) => (
             <MainPage
-              promoFilm={promoFilm}
               onFilmCardClick={(id) => history.push(`/films/${id}`)}
             />
           )} />
@@ -51,16 +51,18 @@ const App = (props) => {
             />
           )}
         />
-        <Route exact path="/player/:id">
-          <Player />
+        <Route exact
+          path="/player/:id"
+          render={({match}) => (
+            <Player
+              currentFilmId={match.params.id}
+            />
+          )}
+        >
         </Route>
       </Switch>
     </BrowserRouter>
   );
-};
-
-App.propTypes = {
-  promoFilm: PropTypes.object.isRequired,
 };
 
 export default App;

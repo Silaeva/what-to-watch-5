@@ -5,6 +5,7 @@ import FilmCardListWithBtn from "../film-cards-list/film-card-list-with-btn";
 import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
 import GenresList from "../genres-list/genres-list";
+import {connect} from "react-redux";
 
 const MainPage = (props) => {
   const {promoFilm, onFilmCardClick} = props;
@@ -93,4 +94,9 @@ MainPage.propTypes = {
   onFilmCardClick: PropTypes.func.isRequired
 };
 
-export default MainPage;
+const mapStateToProps = (state) => ({
+  promoFilm: state.promoFilm
+});
+
+export {MainPage};
+export default connect(mapStateToProps)(MainPage);

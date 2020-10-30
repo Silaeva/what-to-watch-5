@@ -45,7 +45,8 @@ const promoFilm = {
   image: `/img/the-grand-budapest-hotel-poster.jpg`,
   genre: `Drama`,
   year: 2014,
-  bgImage: `/img/bg-the-grand-budapest-hotel.jpg`
+  bgImage: `/img/bg-the-grand-budapest-hotel.jpg`,
+  srcVideo: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`
 };
 
 export {films, promoFilm};
