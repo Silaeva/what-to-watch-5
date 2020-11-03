@@ -18,19 +18,18 @@ const TabsWrapped = withActiveTab(Tabs);
 const FilmPage = (props) => {
   const {films, onFilmCardClick, currentFilmId} = props;
 
-  const currentFilm = films.find((film) => film.id === currentFilmId);
-
-  const {title, genre, year, image, id} = currentFilm;
+  const currentFilm = films.find((film) => film.id === +currentFilmId);
+  const {title, genre, year, image, id, bgImage, bgColor} = currentFilm;
 
   const similarFilms = films.filter((film) => film.genre === genre).slice(0, filmsCount.SIMILAR);
 
   return (
 
     <div>
-      <section className="movie-card movie-card--full">
+      <section className="movie-card movie-card--full" style={{backgroundColor: bgColor}}>
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src="/img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+            <img src={bgImage} alt={title} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -105,12 +104,13 @@ FilmPage.propTypes = {
     genre: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+    bgImage: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired
   }))
 };
 
-const mapStateToProps = (state) => ({
-  films: state.films,
+const mapStateToProps = ({DATA}) => ({
+  films: DATA.films,
 });
 
 export {FilmPage};

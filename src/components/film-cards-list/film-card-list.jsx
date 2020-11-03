@@ -13,11 +13,11 @@ const FilmCardList = (props) => {
             id={film.id}
             key={film.id}
             title={film.title}
-            image={film.image}
+            image={film.previewImage}
             onMouseEnter={handleActiveCard}
             onMouseLeave={handleMouseLeave}
             onFilmCardClick={onFilmCardClick}
-            srcVideo={film.srcVideo}
+            previewVideo={film.previewVideo}
             isActive={film.id === activeCard}
           />
         );
@@ -29,13 +29,13 @@ const FilmCardList = (props) => {
 FilmCardList.propTypes = {
   onFilmCardClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired
   })),
   handleActiveCard: PropTypes.func.isRequired,
   handleMouseLeave: PropTypes.func.isRequired,
-  activeCard: PropTypes.string.isRequired
+  activeCard: PropTypes.number.isRequired
 };
 
 export default FilmCardList;

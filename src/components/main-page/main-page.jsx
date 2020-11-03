@@ -89,13 +89,13 @@ MainPage.propTypes = {
     year: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     bgImage: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+    id: PropTypes.number.isRequired
   }),
   onFilmCardClick: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  promoFilm: state.promoFilm
+const mapStateToProps = ({DATA}) => ({
+  promoFilm: DATA.promoFilm
 });
 
 export {MainPage};

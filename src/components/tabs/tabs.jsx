@@ -77,7 +77,7 @@ Tabs.propTypes = {
       score: PropTypes.number.isRequired,
       count: PropTypes.number.isRequired
     }),
-    description: PropTypes.array.isRequired,
+    description: PropTypes.string.isRequired,
     director: PropTypes.string.isRequired,
     actors: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,

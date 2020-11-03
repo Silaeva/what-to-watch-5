@@ -6,7 +6,7 @@ const withActiveCard = (Component) => {
       super(props);
 
       this.state = {
-        activeCard: ``,
+        activeCard: -1,
       };
 
       this._hoverTimeout = null;
@@ -27,7 +27,7 @@ const withActiveCard = (Component) => {
       this._hoverTimeout = null;
 
       this.setState({
-        activeCard: ``
+        activeCard: -1
       });
     }
 

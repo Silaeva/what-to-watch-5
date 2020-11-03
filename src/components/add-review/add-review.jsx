@@ -13,7 +13,7 @@ const AddReviewFormWrapped = withUserReview(AddReviewForm);
 const AddReview = (props) => {
   const {films, currentFilmId} = props;
 
-  const currentFilm = films.find((film) => film.id === currentFilmId);
+  const currentFilm = films.find((film) => film.id === +currentFilmId);
 
   const {bgImage, title, image} = currentFilm;
 
@@ -68,8 +68,8 @@ AddReview.propTypes = {
   }))
 };
 
-const mapStateToProps = (state) => ({
-  films: state.films,
+const mapStateToProps = ({DATA}) => ({
+  films: DATA.films,
 });
 
 export {AddReview};

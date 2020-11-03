@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import FilmCardList from "./film-card-list";
 import ShowMoreButton from "../show-more-button/show-more-button";
 import {connect} from "react-redux";
+import {getFilmsByGenre} from "../../store/selectors/selectors";
 
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
 
@@ -29,9 +30,9 @@ FilmCardListWithBtn.propTypes = {
   shownFilmsNumber: PropTypes.number.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  filteredFilms: state.filteredFilms,
-  shownFilmsNumber: state.shownFilmsNumber
+const mapStateToProps = ({DATA, STATE}) => ({
+  filteredFilms: getFilmsByGenre({DATA, STATE}),
+  shownFilmsNumber: DATA.shownFilmsNumber
 });
 
 export {FilmCardListWithBtn};
