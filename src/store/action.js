@@ -5,7 +5,7 @@ const ActionType = {
   SHOW_MORE_FILMS: `SHOW_MORE_FILMS`,
   LOAD_FILMS: `LOAD_FILMS`,
   LOAD_PROMO: `LOAD_PROMO`,
-  LOAD_FAVORITE: `LOAD_FAVORITE`,
+  LOAD_FAVORITES: `LOAD_FAVORITES`,
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
 };
@@ -33,9 +33,19 @@ const loadPromo = (film) => ({
   payload: film
 });
 
+const loadFavorites = (films) => ({
+  type: ActionType.LOAD_FAVORITES,
+  payload: films
+});
+
+const loadComments = (comments) => ({
+  type: ActionType.LOAD_COMMENTS,
+  payload: comments
+});
+
 const requireAuthorization = (status) => ({
   type: ActionType.REQUIRED_AUTHORIZATION,
   payload: status,
 });
 
-export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, requireAuthorization};
+export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization};

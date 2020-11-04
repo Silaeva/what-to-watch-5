@@ -1,4 +1,4 @@
-const adaptToClient = (film) => {
+const adaptFilmToClient = (film) => {
   const adaptedFilm = Object.assign(
       {},
       {
@@ -26,4 +26,20 @@ const adaptToClient = (film) => {
   return adaptedFilm;
 };
 
-export {adaptToClient};
+const adaptCommentToClient = (comment) => {
+  const adaptedComment = Object.assign(
+      {},
+      {
+        id: comment.id,
+        text: comment.comment,
+        rating: comment.rating,
+        user: comment.user.name,
+        userId: comment.user.id,
+        date: comment.date
+      }
+  );
+
+  return adaptedComment;
+};
+
+export {adaptFilmToClient, adaptCommentToClient};

@@ -4,8 +4,10 @@ import {filmsCount} from "../../../const";
 const initialState = {
   films: [],
   filteredFilms: [],
+  favoriteFilms: [],
   promoFilm: {},
   shownFilmsNumber: filmsCount.PER_STEP,
+  comments: []
 };
 
 const getShownFilmsNumber = (state) => {
@@ -31,6 +33,14 @@ const filmsData = (state = initialState, action) => {
     case ActionType.LOAD_PROMO:
       return Object.assign({}, state, {
         promoFilm: action.payload,
+      });
+    case ActionType.LOAD_FAVORITES:
+      return Object.assign({}, state, {
+        favoriteFilms: action.payload,
+      });
+    case ActionType.LOAD_COMMENTS:
+      return Object.assign({}, state, {
+        comments: action.payload,
       });
   }
 
