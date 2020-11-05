@@ -11,7 +11,7 @@ const Player = (props) => {
     if (currentFilmId === promoFilm.id) {
       return promoFilm;
     }
-    return films.find((film) => film.id === currentFilmId);
+    return films.find((film) => film.id === +currentFilmId);
   };
 
   const togglerPosition = progress / duration * 100;
@@ -78,9 +78,9 @@ Player.propTypes = {
   isPlaying: PropTypes.bool.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  films: state.films,
-  promoFilm: state.promoFilm
+const mapStateToProps = ({DATA}) => ({
+  films: DATA.films,
+  promoFilm: DATA.promoFilm
 });
 
 export {Player};

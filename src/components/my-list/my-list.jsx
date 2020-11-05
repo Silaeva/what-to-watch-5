@@ -5,13 +5,14 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import {connect} from "react-redux";
+// import {fetchFavoriteFilms} from "../../store/api-actions";
 
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
 
 const FilmCardListWrapped = withActiveCard(FilmCardList);
 
 const MyList = (props) => {
-  const {films, onFilmCardClick} = props;
+  const {films, onFilmCardClick} = props; // getFavoriteFilms // favoriteFilms
 
   return (
     <div className="user-page">
@@ -39,13 +40,20 @@ const MyList = (props) => {
 };
 
 MyList.propTypes = {
-  films: PropTypes.array.isRequired,
-  onFilmCardClick: PropTypes.func.isRequired
+  films: PropTypes.array.isRequired, // favoriteFilms
+  onFilmCardClick: PropTypes.func.isRequired,
+  // getFavoriteFilms: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => ({
-  films: state.films,
+const mapStateToProps = ({DATA}) => ({
+  films: DATA.films, // favoriteFilms
 });
+
+// const mapDispatchToProps = (dispatch) => {
+//   getFavoriteFilms() {
+//     dispatch(fetchFavoriteFilms());
+//   }
+// }
 
 export {MyList};
 export default connect(mapStateToProps)(MyList);

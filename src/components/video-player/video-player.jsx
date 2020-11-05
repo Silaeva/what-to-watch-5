@@ -2,7 +2,7 @@ import React, {createRef, useEffect} from "react";
 import PropTypes from "prop-types";
 
 const VideoPlayer = (props) => {
-  const {srcVideo, image, isActive} = props;
+  const {previewVideo, image, isActive} = props;
 
   const videoRef = createRef();
 
@@ -17,7 +17,7 @@ const VideoPlayer = (props) => {
   return (
     <video
       ref={videoRef}
-      src={srcVideo}
+      src={previewVideo}
       poster={image}
       width="280"
       height="175"
@@ -29,7 +29,7 @@ const VideoPlayer = (props) => {
 };
 
 VideoPlayer.propTypes = {
-  srcVideo: PropTypes.string.isRequired,
+  previewVideo: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   isActive: PropTypes.bool.isRequired
 };
