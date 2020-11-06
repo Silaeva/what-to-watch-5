@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import VideoPlayer from "../video-player/video-player";
+import {AppRoute} from "../../const";
 
 const FilmCard = (props) => {
   const {image, title, onMouseEnter, onMouseLeave, id, onFilmCardClick, previewVideo, isActive} = props;
@@ -17,7 +18,7 @@ const FilmCard = (props) => {
       <VideoPlayer previewVideo={previewVideo} image={image} isActive={isActive} />
 
       <h3 className="small-movie-card__title">
-        <Link to={`/films/${id}`} className="small-movie-card__link">{title}</Link>
+        <Link to={AppRoute.FILMS + id} className="small-movie-card__link">{title}</Link>
       </h3>
     </article>
   );

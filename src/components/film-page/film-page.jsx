@@ -6,7 +6,7 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import Tabs from "../tabs/tabs";
-import {filmsCount} from "../../const";
+import {filmsCount, AppRoute} from "../../const";
 import {connect} from "react-redux";
 
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
@@ -51,7 +51,7 @@ const FilmPage = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to={`/player/${id}/`} className="btn btn--play movie-card__button" type="button">
+                <Link to={AppRoute.PLAYER + id} className="btn btn--play movie-card__button" type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>

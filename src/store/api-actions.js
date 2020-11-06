@@ -1,31 +1,31 @@
-import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization} from "./action";
-import {AuthorizationStatus} from "../const";
+import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute} from "./action";
+import {AuthorizationStatus, APIRoute} from "../const";
 import {adaptFilmToClient, adaptCommentToClient} from "../services/adapters";
 
 const fetchFilmsList = () => (dispatch, _getState, api) => (
-  api.get(`/films`)
+  api.get(APIRoute.FILMS)
     .then(({data}) => dispatch(loadFilms(data.map(adaptFilmToClient))))
 );
 
 const fetchPromoFilm = () => (dispatch, _getState, api) => (
-  api.get(`/films/promo`)
+  api.get(APIRoute.PROMO)
     .then(({data}) => {
       dispatch(loadPromo(adaptFilmToClient(data)));
     })
 );
 
 const fetchFavoriteFilms = () => (dispatch, _getState, api) => (
-  api.get(`/favorite`)
+  api.get(APIRoute.FAVORITE)
     .then(({data}) => dispatch(loadFavorites(data.map(adaptFilmToClient))))
 );
 
 const fetchComments = (id) => (dispatch, _getState, api) => (
-  api.get(`/comments/${id}`)
+  api.get(APIRoute.COMMENTS + id)
     .then(({data}) => dispatch(loadComments(data.map(adaptCommentToClient))))
 );
 
 const checkAuth = () => (dispatch, _getState, api) => (
-  api.get(`/login`)
+  api.get(APIRoute.LOGIN)
     .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
     .catch((err) => {
       throw err;
@@ -33,8 +33,9 @@ const checkAuth = () => (dispatch, _getState, api) => (
 );
 
 const login = ({login: email, password}) => (dispatch, _getState, api) => (
-  api.post(`/login`, {email, password})
+  api.post(APIRoute.LOGIN, {email, password})
     .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
+    .then(() => dispatch(redirectToRoute(APIRoute.ROOT)))
 );
 
 export {fetchFilmsList, fetchPromoFilm, fetchFavoriteFilms, fetchComments, checkAuth, login};

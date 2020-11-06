@@ -8,6 +8,7 @@ const ActionType = {
   LOAD_FAVORITES: `LOAD_FAVORITES`,
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`
 };
 
 const changeFilter = (genre) => ({
@@ -48,4 +49,9 @@ const requireAuthorization = (status) => ({
   payload: status,
 });
 
-export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization};
+const redirectToRoute = (url) => ({
+  type: ActionType.REDIRECT_TO_ROUTE,
+  payload: url,
+});
+
+export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute};
