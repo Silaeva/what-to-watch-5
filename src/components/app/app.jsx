@@ -8,11 +8,13 @@ import AddReview from "../add-review/add-review";
 import VideoPlayer from "../player/player";
 import PrivateRoute from "../private-route/private-route";
 import browserHistory from "../../browser-history";
+import {AppRoute} from '../../route';
 
 import withFullscreenPlayer from "../../hocs/with-fullscreen-player/with-fullscreen-player";
-import {AppRoute} from '../../const';
+import withLoginInfo from "../../hocs/with-login-info/with-login-info";
 
 const Player = withFullscreenPlayer(VideoPlayer);
+const SignInWrapped = withLoginInfo(SignIn);
 
 const App = () => {
   return (
@@ -27,7 +29,7 @@ const App = () => {
           )} />
 
         <Route exact path={AppRoute.LOGIN}>
-          <SignIn />
+          <SignInWrapped />
         </Route>
 
         <PrivateRoute

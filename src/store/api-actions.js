@@ -1,5 +1,6 @@
 import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute} from "./action";
-import {AuthorizationStatus, APIRoute} from "../const";
+import {AuthorizationStatus} from "../const";
+import {APIRoute} from "../route";
 import {adaptFilmToClient, adaptCommentToClient} from "../services/adapters";
 
 const fetchFilmsList = () => (dispatch, _getState, api) => (

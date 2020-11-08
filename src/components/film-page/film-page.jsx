@@ -6,7 +6,8 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import Tabs from "../tabs/tabs";
-import {filmsCount, AppRoute} from "../../const";
+import {filmsCount} from "../../const";
+import {AppRoute} from "../../route";
 import {connect} from "react-redux";
 
 import withActiveCard from "../../hocs/with-active-card/with-active-card";

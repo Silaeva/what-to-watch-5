@@ -6,7 +6,7 @@ import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
 import GenresList from "../genres-list/genres-list";
 import {connect} from "react-redux";
-import {AppRoute} from "../../const";
+import {AppRoute} from "../../route";
 
 const MainPage = (props) => {
   const {promoFilm, onFilmCardClick} = props;

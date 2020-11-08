@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom";
-import {AuthorizationStatus, AppRoute} from "../../const";
+import {AuthorizationStatus} from "../../const";
+import {AppRoute} from "../../route";
 
 const getUserBlockTemplate = (status) => {
   if (status === AuthorizationStatus.AUTH) {
