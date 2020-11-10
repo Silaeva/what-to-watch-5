@@ -1,35 +1,64 @@
-import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute} from "./action";
+import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, checkAuthInProgress, checkFavoritesIsLoading, checkFavoritesLoadError, checkCommentsIsLoading, checkCommentsLoadError} from "./action";
 import {AuthorizationStatus} from "../const";
 import {APIRoute} from "../route";
 import {adaptFilmToClient, adaptCommentToClient} from "../services/adapters";
 
 const fetchFilmsList = () => (dispatch, _getState, api) => (
   api.get(APIRoute.FILMS)
-    .then(({data}) => dispatch(loadFilms(data.map(adaptFilmToClient))))
+    .then(({data}) => {
+      dispatch(toggleIsLoading(false));
+      dispatch(loadFilms(data.map(adaptFilmToClient)));
+    })
+    .catch(() => {
+      dispatch(toggleIsLoading(false));
+      dispatch(toggleIsLoadError(true));
+    })
 );
 
 const fetchPromoFilm = () => (dispatch, _getState, api) => (
   api.get(APIRoute.PROMO)
     .then(({data}) => {
+      dispatch(toggleIsLoading(false));
       dispatch(loadPromo(adaptFilmToClient(data)));
+    })
+    .catch(() => {
+      dispatch(toggleIsLoading(false));
+      dispatch(toggleIsLoadError(true));
     })
 );
 
 const fetchFavoriteFilms = () => (dispatch, _getState, api) => (
   api.get(APIRoute.FAVORITE)
-    .then(({data}) => dispatch(loadFavorites(data.map(adaptFilmToClient))))
+    .then(({data}) => {
+      dispatch(checkFavoritesIsLoading(false));
+      dispatch(loadFavorites(data.map(adaptFilmToClient)));
+    })
+    .catch(() => {
+      dispatch(checkFavoritesIsLoading(false));
+      dispatch(checkFavoritesLoadError(true));
+    })
 );
 
 const fetchComments = (id) => (dispatch, _getState, api) => (
   api.get(APIRoute.COMMENTS + id)
-    .then(({data}) => dispatch(loadComments(data.map(adaptCommentToClient))))
+    .then(({data}) => {
+      dispatch(checkCommentsIsLoading(false));
+      dispatch(loadComments(data.map(adaptCommentToClient)));
+    })
+    .catch(() => {
+      dispatch(checkCommentsIsLoading(false));
+      dispatch(checkCommentsLoadError(true));
+    })
 );
 
 const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIRoute.LOGIN)
-    .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
-    .catch((err) => {
-      throw err;
+    .then(() => {
+      dispatch(requireAuthorization(AuthorizationStatus.AUTH));
+      dispatch(checkAuthInProgress(false));
+    })
+    .catch(() => {
+      dispatch(checkAuthInProgress(false));
     })
 );
 

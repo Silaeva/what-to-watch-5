@@ -24,7 +24,7 @@ const store = createStore(
     )
 );
 
-Promise.allSettled([
+Promise.all([
   store.dispatch(fetchFilmsList()),
   store.dispatch(fetchPromoFilm()),
   store.dispatch(checkAuth())

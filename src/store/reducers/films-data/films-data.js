@@ -7,7 +7,11 @@ const initialState = {
   favoriteFilms: [],
   promoFilm: {},
   shownFilmsNumber: filmsCount.PER_STEP,
-  comments: []
+  comments: [],
+  isFavoritesLoading: true,
+  isFavoritesLoadError: false,
+  isCommentsLoading: true,
+  isCommentsLoadError: false
 };
 
 const getShownFilmsNumber = (state) => {
@@ -38,9 +42,25 @@ const filmsData = (state = initialState, action) => {
       return Object.assign({}, state, {
         favoriteFilms: action.payload,
       });
+    case ActionType.CHECK_FAVORITES_IS_LOADING:
+      return Object.assign({}, state, {
+        isFavoritesLoading: action.payload,
+      });
+    case ActionType.CHECK_FAVORITES_LOAD_ERROR:
+      return Object.assign({}, state, {
+        isFavoritesLoadError: action.payload,
+      });
     case ActionType.LOAD_COMMENTS:
       return Object.assign({}, state, {
         comments: action.payload,
+      });
+    case ActionType.CHECK_COMMENTS_IS_LOADING:
+      return Object.assign({}, state, {
+        isCommentsLoading: action.payload,
+      });
+    case ActionType.CHECK_COMMENTS_LOAD_ERROR:
+      return Object.assign({}, state, {
+        isCommentsLoadError: action.payload,
       });
   }
 

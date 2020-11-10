@@ -8,7 +8,14 @@ const ActionType = {
   LOAD_FAVORITES: `LOAD_FAVORITES`,
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
-  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
+  TOGGLE_IS_LOADING: `TOGGLE_IS_LOADING`,
+  TOGGLE_IS_LOAD_ERROR: `TOGGLE_IS_LOAD_ERROR`,
+  CHECK_AUTH_PROGRESS: `CHECK_AUTH_PROGRESS`,
+  CHECK_FAVORITES_IS_LOADING: `CHECK_FAVORITES_IS_LOADING`,
+  CHECK_FAVORITES_LOAD_ERROR: `CHECK_FAVORITES_LOAD_ERROR`,
+  CHECK_COMMENTS_IS_LOADING: `CHECK_COMMENTS_IS_LOADING`,
+  CHECK_COMMENTS_LOAD_ERROR: `CHECK_COMMENTS_LOAD_ERROR`
 };
 
 const changeFilter = (genre) => ({
@@ -54,4 +61,39 @@ const redirectToRoute = (url) => ({
   payload: url,
 });
 
-export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute};
+const toggleIsLoading = (bool) => ({
+  type: ActionType.TOGGLE_IS_LOADING,
+  payload: bool
+});
+
+const toggleIsLoadError = (bool) => ({
+  type: ActionType.TOGGLE_IS_LOAD_ERROR,
+  payload: bool
+});
+
+const checkAuthInProgress = (bool) => ({
+  type: ActionType.CHECK_AUTH_PROGRESS,
+  payload: bool
+});
+
+const checkFavoritesIsLoading = (bool) => ({
+  type: ActionType.CHECK_FAVORITES_IS_LOADING,
+  payload: bool
+});
+
+const checkFavoritesLoadError = (bool) => ({
+  type: ActionType.CHECK_FAVORITES_LOAD_ERROR,
+  payload: bool
+});
+
+const checkCommentsIsLoading = (bool) => ({
+  type: ActionType.CHECK_COMMENTS_IS_LOADING,
+  payload: bool
+});
+
+const checkCommentsLoadError = (bool) => ({
+  type: ActionType.CHECK_COMMENTS_LOAD_ERROR,
+  payload: bool
+});
+
+export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, checkAuthInProgress, checkFavoritesIsLoading, checkFavoritesLoadError, checkCommentsIsLoading, checkCommentsLoadError};
