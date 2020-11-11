@@ -64,7 +64,7 @@ const App = (props) => {
           path={AppRoute.FILMS_ID}
           render={({history, match}) => (
             <FilmPage
-              currentFilmId={match.params.id}
+              currentFilmId={parseInt(match.params.id, 10)}
               onFilmCardClick={(id) => history.push(AppRoute.FILMS + id)}
             />
           )}
@@ -77,7 +77,7 @@ const App = (props) => {
           render={({match}) => {
             return (
               <AddReview
-                currentFilmId={match.params.id}
+                currentFilmId={parseInt(match.params.id, 10)}
               />
             );
           }}
@@ -86,7 +86,7 @@ const App = (props) => {
           path={AppRoute.PLAYER_ID}
           render={({match}) => (
             <Player
-              currentFilmId={match.params.id}
+              currentFilmId={parseInt(match.params.id, 10)}
             />
           )}
         >

@@ -15,7 +15,9 @@ const ActionType = {
   CHECK_FAVORITES_IS_LOADING: `CHECK_FAVORITES_IS_LOADING`,
   CHECK_FAVORITES_LOAD_ERROR: `CHECK_FAVORITES_LOAD_ERROR`,
   CHECK_COMMENTS_IS_LOADING: `CHECK_COMMENTS_IS_LOADING`,
-  CHECK_COMMENTS_LOAD_ERROR: `CHECK_COMMENTS_LOAD_ERROR`
+  CHECK_COMMENTS_LOAD_ERROR: `CHECK_COMMENTS_LOAD_ERROR`,
+  CHECK_COMMENT_IS_SENDING: `CHECK_COMMENT_IS_SENDING`,
+  CHECK_COMMENT_SEND_ERROR: `CHECK_COMMENT_SEND_ERROR`
 };
 
 const changeFilter = (genre) => ({
@@ -96,4 +98,14 @@ const checkCommentsLoadError = (bool) => ({
   payload: bool
 });
 
-export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, checkAuthInProgress, checkFavoritesIsLoading, checkFavoritesLoadError, checkCommentsIsLoading, checkCommentsLoadError};
+const checkCommentIsSending = (bool) => ({
+  type: ActionType.CHECK_COMMENT_IS_SENDING,
+  payload: bool
+});
+
+const checkCommentSendError = (bool) => ({
+  type: ActionType.CHECK_COMMENT_SEND_ERROR,
+  payload: bool
+});
+
+export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, checkAuthInProgress, checkFavoritesIsLoading, checkFavoritesLoadError, checkCommentsIsLoading, checkCommentsLoadError, checkCommentIsSending, checkCommentSendError};

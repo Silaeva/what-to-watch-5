@@ -1,4 +1,4 @@
-import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, checkAuthInProgress, checkFavoritesIsLoading, checkFavoritesLoadError, checkCommentsIsLoading, checkCommentsLoadError} from "./action";
+import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, checkAuthInProgress, checkFavoritesIsLoading, checkFavoritesLoadError, checkCommentsIsLoading, checkCommentsLoadError, checkCommentIsSending, checkCommentSendError} from "./action";
 import {AuthorizationStatus} from "../const";
 import {APIRoute} from "../route";
 import {adaptFilmToClient, adaptCommentToClient} from "../services/adapters";
@@ -68,4 +68,16 @@ const login = ({login: email, password}) => (dispatch, _getState, api) => (
     .then(() => dispatch(redirectToRoute(APIRoute.ROOT)))
 );
 
-export {fetchFilmsList, fetchPromoFilm, fetchFavoriteFilms, fetchComments, checkAuth, login};
+const sendComment = (filmId, {rating, comment}) => (dispatch, _getState, api) => (
+  api.post(APIRoute.COMMENTS + filmId, {rating, comment})
+    .then(() => {
+      dispatch(checkCommentIsSending(false));
+      dispatch(redirectToRoute(APIRoute.FILMS + `/` + filmId));
+    })
+    .catch(() => {
+      dispatch(checkCommentIsSending(false));
+      dispatch(checkCommentSendError(true));
+    })
+);
+
+export {fetchFilmsList, fetchPromoFilm, fetchFavoriteFilms, fetchComments, checkAuth, login, sendComment};

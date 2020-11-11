@@ -18,7 +18,7 @@ const FilmPageReviews = (props) => {
       );
     } else if (isCommentsLoadError) {
       return (
-        <p>Sorry, something went wrong!</p>
+        <p>Sorry, something went wrong! Please, try again later.</p>
       );
     }
 

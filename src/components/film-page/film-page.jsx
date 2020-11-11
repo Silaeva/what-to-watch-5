@@ -6,7 +6,7 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import Tabs from "../tabs/tabs";
-import {filmsCount} from "../../const";
+import {filmsCount, AuthorizationStatus} from "../../const";
 import {AppRoute} from "../../route";
 import {connect} from "react-redux";
 
@@ -17,9 +17,9 @@ const FilmCardListWrapped = withActiveCard(FilmCardList);
 const TabsWrapped = withActiveTab(Tabs);
 
 const FilmPage = (props) => {
-  const {films, onFilmCardClick, currentFilmId} = props;
+  const {films, onFilmCardClick, currentFilmId, authorizationStatus} = props;
 
-  const currentFilm = films.find((film) => film.id === +currentFilmId);
+  const currentFilm = films.find((film) => film.id === currentFilmId);
   const {title, genre, year, image, id, bgImage, bgColor} = currentFilm;
 
   const similarFilms = films.filter((film) => film.genre === genre).slice(0, filmsCount.SIMILAR);
@@ -64,7 +64,13 @@ const FilmPage = (props) => {
                   </svg>
                   <span>My list</span>
                 </Link>
-                <Link to={`/films/${id}/review`} className="btn movie-card__button">Add review</Link>
+                {
+                  authorizationStatus === AuthorizationStatus.AUTH
+                    ?
+                    <Link to={`/films/${id}/review`} className="btn movie-card__button">Add review</Link>
+                    :
+                    ``
+                }
               </div>
             </div>
           </div>
@@ -98,7 +104,7 @@ const FilmPage = (props) => {
 };
 
 FilmPage.propTypes = {
-  currentFilmId: PropTypes.string.isRequired,
+  currentFilmId: PropTypes.number.isRequired,
   onFilmCardClick: PropTypes.func.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
@@ -107,11 +113,13 @@ FilmPage.propTypes = {
     image: PropTypes.string.isRequired,
     bgImage: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired
-  }))
+  })),
+  authorizationStatus: PropTypes.string.isRequired
 };
 
-const mapStateToProps = ({DATA}) => ({
+const mapStateToProps = ({DATA, USER}) => ({
   films: DATA.films,
+  authorizationStatus: USER.authorizationStatus
 });
 
 export {FilmPage};

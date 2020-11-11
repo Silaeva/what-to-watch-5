@@ -5,6 +5,7 @@ import AddReviewForm from "../add-review-form/add-review-form";
 import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import {connect} from "react-redux";
+import {AppRoute} from "../../route";
 
 import withUserReview from "../../hocs/with-user-review/with-user-review";
 
@@ -13,7 +14,7 @@ const AddReviewFormWrapped = withUserReview(AddReviewForm);
 const AddReview = (props) => {
   const {films, currentFilmId} = props;
 
-  const currentFilm = films.find((film) => film.id === +currentFilmId);
+  const currentFilm = films.find((film) => film.id === currentFilmId);
 
   const {bgImage, title, image} = currentFilm;
 
@@ -33,7 +34,7 @@ const AddReview = (props) => {
           <nav className="breadcrumbs">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <Link to="/films/:id" href="movie-page.html" className="breadcrumbs__link">{title}</Link>
+                <Link to={AppRoute.FILMS + currentFilmId} href="movie-page.html" className="breadcrumbs__link">{title}</Link>
               </li>
               <li className="breadcrumbs__item">
                 <a className="breadcrumbs__link">Add review</a>
@@ -51,7 +52,7 @@ const AddReview = (props) => {
 
       <div className="add-review">
 
-        <AddReviewFormWrapped />
+        <AddReviewFormWrapped currentFilmId={currentFilmId} />
 
       </div>
 
@@ -60,7 +61,7 @@ const AddReview = (props) => {
 };
 
 AddReview.propTypes = {
-  currentFilmId: PropTypes.string.isRequired,
+  currentFilmId: PropTypes.number.isRequired,
   films: PropTypes.arrayOf(PropTypes.shape({
     image: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,

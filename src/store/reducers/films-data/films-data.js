@@ -11,7 +11,9 @@ const initialState = {
   isFavoritesLoading: true,
   isFavoritesLoadError: false,
   isCommentsLoading: true,
-  isCommentsLoadError: false
+  isCommentsLoadError: false,
+  isCommentSending: false,
+  isCommentSendError: false
 };
 
 const getShownFilmsNumber = (state) => {
@@ -61,6 +63,14 @@ const filmsData = (state = initialState, action) => {
     case ActionType.CHECK_COMMENTS_LOAD_ERROR:
       return Object.assign({}, state, {
         isCommentsLoadError: action.payload,
+      });
+    case ActionType.CHECK_COMMENT_IS_SENDING:
+      return Object.assign({}, state, {
+        isCommentSending: action.payload,
+      });
+    case ActionType.CHECK_COMMENT_SEND_ERROR:
+      return Object.assign({}, state, {
+        isCommentSendError: action.payload,
       });
   }
 
