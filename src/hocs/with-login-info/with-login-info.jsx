@@ -10,21 +10,19 @@ const withLoginInfo = (Component) => {
         password: ``
       };
 
-      this._handleEmailChange = this._handleEmailChange.bind(this);
-      this._handlePasswordChange = this._handlePasswordChange.bind(this);
+      this._handleChange = this._handleChange.bind(this);
     }
 
-
-    _handleEmailChange(evt) {
-      this.setState({
-        email: evt.target.value
-      });
-    }
-
-    _handlePasswordChange(evt) {
-      this.setState({
-        password: evt.target.value
-      });
+    _handleChange(evt) {
+      if (evt.target.name.includes(`email`)) {
+        this.setState({
+          email: evt.target.value
+        });
+      } else if (evt.target.name.includes(`password`)) {
+        this.setState({
+          password: evt.target.value
+        });
+      }
     }
 
     render() {
@@ -34,12 +32,10 @@ const withLoginInfo = (Component) => {
         <Component {...this.props}
           email={email}
           password={password}
-          handleEmailChange={this._handleEmailChange}
-          handlePasswordChange={this._handlePasswordChange}
+          handleChange={this._handleChange}
         />
       );
     }
-
   }
 
   return WithLoginInfo;

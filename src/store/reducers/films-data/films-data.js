@@ -44,11 +44,11 @@ const filmsData = (state = initialState, action) => {
       return Object.assign({}, state, {
         favoriteFilms: action.payload,
       });
-    case ActionType.CHECK_FAVORITES_IS_LOADING:
+    case ActionType.SET_FAVORITES_IS_LOADING:
       return Object.assign({}, state, {
         isFavoritesLoading: action.payload,
       });
-    case ActionType.CHECK_FAVORITES_LOAD_ERROR:
+    case ActionType.SET_FAVORITES_LOAD_ERROR:
       return Object.assign({}, state, {
         isFavoritesLoadError: action.payload,
       });
@@ -56,19 +56,19 @@ const filmsData = (state = initialState, action) => {
       return Object.assign({}, state, {
         comments: action.payload,
       });
-    case ActionType.CHECK_COMMENTS_IS_LOADING:
+    case ActionType.SET_COMMENTS_IS_LOADING:
       return Object.assign({}, state, {
         isCommentsLoading: action.payload,
       });
-    case ActionType.CHECK_COMMENTS_LOAD_ERROR:
+    case ActionType.SET_COMMENTS_LOAD_ERROR:
       return Object.assign({}, state, {
         isCommentsLoadError: action.payload,
       });
-    case ActionType.CHECK_COMMENT_IS_SENDING:
+    case ActionType.SET_COMMENT_IS_SENDING:
       return Object.assign({}, state, {
         isCommentSending: action.payload,
       });
-    case ActionType.CHECK_COMMENT_SEND_ERROR:
+    case ActionType.SET_COMMENT_SEND_ERROR:
       return Object.assign({}, state, {
         isCommentSendError: action.payload,
       });

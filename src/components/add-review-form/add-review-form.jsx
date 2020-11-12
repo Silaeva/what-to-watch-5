@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {sendComment} from "../../store/api-actions";
-import {checkCommentIsSending} from "../../store/action";
+import {setCommentIsSending} from "../../store/action";
 
 const STAR_NUMBERS = [`1`, `2`, `3`, `4`, `5`];
 
@@ -50,7 +50,7 @@ const AddReviewForm = (props) => {
               <React.Fragment key={starNumber}>
                 <input className="rating__input" id={`star-${starNumber}`} type="radio" name="rating" value={starNumber}
                   disabled={isCommentSending}
-                  checked={rating === starNumber}
+                  seted={rating === starNumber}
                   onChange={handleRatingChange}
                 />
                 <label className="rating__label" htmlFor={`star-${starNumber}`}>Rating {starNumber}</label>
@@ -105,7 +105,7 @@ const mapStateToProps = ({DATA}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   onPostBtnClick(filmId, commentData) {
-    dispatch(checkCommentIsSending(true));
+    dispatch(setCommentIsSending(true));
     dispatch(sendComment(filmId, commentData));
   }
 });

@@ -6,7 +6,7 @@ import LogoHeader from "../logo-header/logo-header";
 import {login} from "../../store/api-actions";
 
 const SignIn = (props) => {
-  const {onSubmit, handleEmailChange, handlePasswordChange, email, password} = props;
+  const {onSubmit, handleChange, email, password} = props;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -33,13 +33,13 @@ const SignIn = (props) => {
           <div className="sign-in__fields">
             <div className="sign-in__field">
               <input className="sign-in__input" type="email" placeholder="Email address" name="user-email" id="user-email"
-                onChange={handleEmailChange}
+                onChange={handleChange}
               />
               <label className="sign-in__label visually-hidden" htmlFor="user-email">Email address</label>
             </div>
             <div className="sign-in__field">
               <input className="sign-in__input" type="password" placeholder="Password" name="user-password" id="user-password"
-                onChange={handlePasswordChange}
+                onChange={handleChange}
               />
               <label className="sign-in__label visually-hidden" htmlFor="user-password">Password</label>
             </div>
@@ -58,8 +58,7 @@ const SignIn = (props) => {
 
 SignIn.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  handleEmailChange: PropTypes.func.isRequired,
-  handlePasswordChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
   email: PropTypes.string.isRequired,
   password: PropTypes.string.isRequired
 };

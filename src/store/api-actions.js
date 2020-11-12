@@ -1,16 +1,14 @@
-import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, checkAuthInProgress, checkFavoritesIsLoading, checkFavoritesLoadError, checkCommentsIsLoading, checkCommentsLoadError, checkCommentIsSending, checkCommentSendError} from "./action";
+import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoadError, setAuthInProgress, setFavoritesIsLoading, setFavoritesLoadError, setCommentsIsLoading, setCommentsLoadError, setCommentIsSending, setCommentSendError} from "./action";
 import {AuthorizationStatus} from "../const";
-import {APIRoute} from "../route";
+import {APIRoute, AppRoute} from "../route";
 import {adaptFilmToClient, adaptCommentToClient} from "../services/adapters";
 
 const fetchFilmsList = () => (dispatch, _getState, api) => (
   api.get(APIRoute.FILMS)
     .then(({data}) => {
-      dispatch(toggleIsLoading(false));
       dispatch(loadFilms(data.map(adaptFilmToClient)));
     })
     .catch(() => {
-      dispatch(toggleIsLoading(false));
       dispatch(toggleIsLoadError(true));
     })
 );
@@ -18,11 +16,9 @@ const fetchFilmsList = () => (dispatch, _getState, api) => (
 const fetchPromoFilm = () => (dispatch, _getState, api) => (
   api.get(APIRoute.PROMO)
     .then(({data}) => {
-      dispatch(toggleIsLoading(false));
       dispatch(loadPromo(adaptFilmToClient(data)));
     })
     .catch(() => {
-      dispatch(toggleIsLoading(false));
       dispatch(toggleIsLoadError(true));
     })
 );
@@ -30,24 +26,24 @@ const fetchPromoFilm = () => (dispatch, _getState, api) => (
 const fetchFavoriteFilms = () => (dispatch, _getState, api) => (
   api.get(APIRoute.FAVORITE)
     .then(({data}) => {
-      dispatch(checkFavoritesIsLoading(false));
+      dispatch(setFavoritesIsLoading(false));
       dispatch(loadFavorites(data.map(adaptFilmToClient)));
     })
     .catch(() => {
-      dispatch(checkFavoritesIsLoading(false));
-      dispatch(checkFavoritesLoadError(true));
+      dispatch(setFavoritesIsLoading(false));
+      dispatch(setFavoritesLoadError(true));
     })
 );
 
 const fetchComments = (id) => (dispatch, _getState, api) => (
   api.get(APIRoute.COMMENTS + id)
     .then(({data}) => {
-      dispatch(checkCommentsIsLoading(false));
+      dispatch(setCommentsIsLoading(false));
       dispatch(loadComments(data.map(adaptCommentToClient)));
     })
     .catch(() => {
-      dispatch(checkCommentsIsLoading(false));
-      dispatch(checkCommentsLoadError(true));
+      dispatch(setCommentsIsLoading(false));
+      dispatch(setCommentsLoadError(true));
     })
 );
 
@@ -55,10 +51,10 @@ const checkAuth = () => (dispatch, _getState, api) => (
   api.get(APIRoute.LOGIN)
     .then(() => {
       dispatch(requireAuthorization(AuthorizationStatus.AUTH));
-      dispatch(checkAuthInProgress(false));
+      dispatch(setAuthInProgress(false));
     })
     .catch(() => {
-      dispatch(checkAuthInProgress(false));
+      dispatch(setAuthInProgress(false));
     })
 );
 
@@ -71,12 +67,12 @@ const login = ({login: email, password}) => (dispatch, _getState, api) => (
 const sendComment = (filmId, {rating, comment}) => (dispatch, _getState, api) => (
   api.post(APIRoute.COMMENTS + filmId, {rating, comment})
     .then(() => {
-      dispatch(checkCommentIsSending(false));
-      dispatch(redirectToRoute(APIRoute.FILMS + `/` + filmId));
+      dispatch(setCommentIsSending(false));
+      dispatch(redirectToRoute(AppRoute.FILMS + filmId));
     })
     .catch(() => {
-      dispatch(checkCommentIsSending(false));
-      dispatch(checkCommentSendError(true));
+      dispatch(setCommentIsSending(false));
+      dispatch(setCommentSendError(true));
     })
 );
 

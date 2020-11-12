@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import {createAPI} from "./services/api";
 import App from "./components/app/app";
 import rootReducer from "./store/reducers/root-reducer";
-import {requireAuthorization} from "./store/action";
+import {requireAuthorization, toggleIsLoading} from "./store/action";
 import {fetchFilmsList, fetchPromoFilm, checkAuth} from "./store/api-actions";
 import {AuthorizationStatus} from "./const";
 import {redirect} from "./store/middlewares/redirect";
@@ -30,10 +30,15 @@ Promise.all([
   store.dispatch(checkAuth())
 ])
 .then(() => {
-  ReactDOM.render(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-      document.querySelector(`#root`)
-  );
+  store.dispatch(toggleIsLoading(false));
+})
+.catch(() => {
+  store.dispatch(toggleIsLoading(false));
 });
+
+ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.querySelector(`#root`)
+);

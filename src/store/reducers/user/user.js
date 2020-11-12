@@ -12,7 +12,7 @@ const user = (state = initialState, action) => {
       return Object.assign({}, state, {
         authorizationStatus: action.payload,
       });
-    case ActionType.CHECK_AUTH_PROGRESS:
+    case ActionType.SET_AUTH_PROGRESS:
       return Object.assign({}, state, {
         authInProgress: action.payload,
       });
