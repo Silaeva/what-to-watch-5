@@ -8,6 +8,16 @@ const ActionType = {
   LOAD_FAVORITES: `LOAD_FAVORITES`,
   LOAD_COMMENTS: `LOAD_COMMENTS`,
   REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
+  TOGGLE_IS_LOADING: `TOGGLE_IS_LOADING`,
+  TOGGLE_IS_LOAD_ERROR: `TOGGLE_IS_LOAD_ERROR`,
+  SET_AUTH_PROGRESS: `SET_AUTH_PROGRESS`,
+  SET_FAVORITES_IS_LOADING: `SET_FAVORITES_IS_LOADING`,
+  SET_FAVORITES_LOAD_ERROR: `SET_FAVORITES_LOAD_ERROR`,
+  SET_COMMENTS_IS_LOADING: `SET_COMMENTS_IS_LOADING`,
+  SET_COMMENTS_LOAD_ERROR: `SET_COMMENTS_LOAD_ERROR`,
+  SET_COMMENT_IS_SENDING: `SET_COMMENT_IS_SENDING`,
+  SET_COMMENT_SEND_ERROR: `SET_COMMENT_SEND_ERROR`
 };
 
 const changeFilter = (genre) => ({
@@ -48,4 +58,54 @@ const requireAuthorization = (status) => ({
   payload: status,
 });
 
-export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization};
+const redirectToRoute = (url) => ({
+  type: ActionType.REDIRECT_TO_ROUTE,
+  payload: url,
+});
+
+const toggleIsLoading = (bool) => ({
+  type: ActionType.TOGGLE_IS_LOADING,
+  payload: bool
+});
+
+const toggleIsLoadError = (bool) => ({
+  type: ActionType.TOGGLE_IS_LOAD_ERROR,
+  payload: bool
+});
+
+const setAuthInProgress = (bool) => ({
+  type: ActionType.SET_AUTH_PROGRESS,
+  payload: bool
+});
+
+const setFavoritesIsLoading = (bool) => ({
+  type: ActionType.SET_FAVORITES_IS_LOADING,
+  payload: bool
+});
+
+const setFavoritesLoadError = (bool) => ({
+  type: ActionType.SET_FAVORITES_LOAD_ERROR,
+  payload: bool
+});
+
+const setCommentsIsLoading = (bool) => ({
+  type: ActionType.SET_COMMENTS_IS_LOADING,
+  payload: bool
+});
+
+const setCommentsLoadError = (bool) => ({
+  type: ActionType.SET_COMMENTS_LOAD_ERROR,
+  payload: bool
+});
+
+const setCommentIsSending = (bool) => ({
+  type: ActionType.SET_COMMENT_IS_SENDING,
+  payload: bool
+});
+
+const setCommentSendError = (bool) => ({
+  type: ActionType.SET_COMMENT_SEND_ERROR,
+  payload: bool
+});
+
+export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, setAuthInProgress, setFavoritesIsLoading, setFavoritesLoadError, setCommentsIsLoading, setCommentsLoadError, setCommentIsSending, setCommentSendError};

@@ -1,18 +1,38 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import FilmCardList from "../film-cards-list/film-card-list";
 import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import {connect} from "react-redux";
-// import {fetchFavoriteFilms} from "../../store/api-actions";
+import {fetchFavoriteFilms} from "../../store/api-actions";
 
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
 
 const FilmCardListWrapped = withActiveCard(FilmCardList);
 
 const MyList = (props) => {
-  const {films, onFilmCardClick} = props; // getFavoriteFilms // favoriteFilms
+  const {favoriteFilms, onFilmCardClick, getFavoriteFilms, isFavoritesLoading, isFavoritesLoadError} = props;
+
+  useEffect(() => {
+    getFavoriteFilms();
+  }, []);
+
+  const getMyListPageContent = () => {
+    if (isFavoritesLoading && !isFavoritesLoadError) {
+      return (
+        <p>Loading...</p>
+      );
+    } else if (isFavoritesLoadError) {
+      return (
+        <p>Sorry, something went wrong!</p>
+      );
+    }
+
+    return (
+      <FilmCardListWrapped films={favoriteFilms} onFilmCardClick={onFilmCardClick} />
+    );
+  };
 
   return (
     <div className="user-page">
@@ -29,7 +49,7 @@ const MyList = (props) => {
       <section className="catalog">
         <h2 className="catalog__title visually-hidden">Catalog</h2>
 
-        <FilmCardListWrapped films={films} onFilmCardClick={onFilmCardClick} />
+        {getMyListPageContent()}
 
       </section>
 
@@ -40,20 +60,24 @@ const MyList = (props) => {
 };
 
 MyList.propTypes = {
-  films: PropTypes.array.isRequired, // favoriteFilms
+  favoriteFilms: PropTypes.array.isRequired,
   onFilmCardClick: PropTypes.func.isRequired,
-  // getFavoriteFilms: PropTypes.func.isRequired
+  isFavoritesLoading: PropTypes.bool.isRequired,
+  isFavoritesLoadError: PropTypes.bool.isRequired,
+  getFavoriteFilms: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({DATA}) => ({
-  films: DATA.films, // favoriteFilms
+  favoriteFilms: DATA.favoriteFilms,
+  isFavoritesLoading: DATA.isFavoritesLoading,
+  isFavoritesLoadError: DATA.isFavoritesLoadError
 });
 
-// const mapDispatchToProps = (dispatch) => {
-//   getFavoriteFilms() {
-//     dispatch(fetchFavoriteFilms());
-//   }
-// }
+const mapDispatchToProps = (dispatch) => ({
+  getFavoriteFilms() {
+    dispatch(fetchFavoriteFilms());
+  }
+});
 
 export {MyList};
-export default connect(mapStateToProps)(MyList);
+export default connect(mapStateToProps, mapDispatchToProps)(MyList);

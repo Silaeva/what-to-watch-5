@@ -7,7 +7,8 @@ const withUserReview = (Component) => {
 
       this.state = {
         rating: ``,
-        comment: ``
+        comment: ``,
+        isReviewValid: false
       };
 
       this._handleRatingChange = this._handleRatingChange.bind(this);
@@ -24,15 +25,18 @@ const withUserReview = (Component) => {
     _handleCommentChange(evt) {
       this.setState({
         comment: evt.target.value,
+        isReviewValid: evt.target.value.length >= 50 && evt.target.value.length <= 400
       });
     }
 
     render() {
-      const {rating} = this.state;
+      const {rating, comment, isReviewValid} = this.state;
 
       return (
         <Component {...this.props}
-          currentRating={rating}
+          isReviewValid={isReviewValid && !!rating}
+          rating={rating}
+          comment={comment}
           handleRatingChange={this._handleRatingChange}
           handleCommentChange={this._handleCommentChange}
         />

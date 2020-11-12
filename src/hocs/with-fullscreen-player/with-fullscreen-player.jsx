@@ -66,7 +66,7 @@ const withFullscreenPlayer = (Component) => {
           onFullscreenClick={this._handleFullscreenBtnClick}
           renderPlayer={(film) => {
             return (
-              <video ref={this._videoRef} src={film.srcVideo} className="player__video" poster={film.image}></video>
+              <video ref={this._videoRef} src={film.srcVideo} className="player__video" poster={film.previewImage}></video>
             );
           }}
         />

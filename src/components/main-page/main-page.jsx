@@ -6,6 +6,7 @@ import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
 import GenresList from "../genres-list/genres-list";
 import {connect} from "react-redux";
+import {AppRoute} from "../../route";
 
 const MainPage = (props) => {
   const {promoFilm, onFilmCardClick} = props;
@@ -47,7 +48,7 @@ const MainPage = (props) => {
               </p>
 
               <div className="movie-card__buttons">
-                <Link to={`/player/${id}/`} className="btn btn--play movie-card__button" type="button">
+                <Link to={AppRoute.PLAYER + id} className="btn btn--play movie-card__button" type="button">
                   <svg viewBox="0 0 19 19" width="19" height="19">
                     <use xlinkHref="#play-s"></use>
                   </svg>
