@@ -26,8 +26,8 @@ const fetchPromoFilm = () => (dispatch, _getState, api) => (
 const fetchFavoriteFilms = () => (dispatch, _getState, api) => (
   api.get(APIRoute.FAVORITE)
     .then(({data}) => {
-      dispatch(setFavoritesIsLoading(false));
       dispatch(loadFavorites(data.map(adaptFilmToClient)));
+      dispatch(setFavoritesIsLoading(false));
     })
     .catch(() => {
       dispatch(setFavoritesIsLoading(false));
@@ -38,8 +38,8 @@ const fetchFavoriteFilms = () => (dispatch, _getState, api) => (
 const fetchComments = (id) => (dispatch, _getState, api) => (
   api.get(APIRoute.COMMENTS + id)
     .then(({data}) => {
-      dispatch(setCommentsIsLoading(false));
       dispatch(loadComments(data.map(adaptCommentToClient)));
+      dispatch(setCommentsIsLoading(false));
     })
     .catch(() => {
       dispatch(setCommentsIsLoading(false));
@@ -67,8 +67,8 @@ const login = ({login: email, password}) => (dispatch, _getState, api) => (
 const sendComment = (filmId, {rating, comment}) => (dispatch, _getState, api) => (
   api.post(APIRoute.COMMENTS + filmId, {rating, comment})
     .then(() => {
-      dispatch(setDataIsSending(false));
       dispatch(redirectToRoute(AppRoute.FILMS + filmId));
+      dispatch(setDataIsSending(false));
     })
     .catch(() => {
       dispatch(setDataIsSending(false));
@@ -79,9 +79,9 @@ const sendComment = (filmId, {rating, comment}) => (dispatch, _getState, api) =>
 const sendFavoriteStatus = (filmId, isFavorite) => (dispatch, _getState, api) => (
   api.post(`${APIRoute.FAVORITE}/${filmId}/${isFavorite ? StatusCode.REMOVE : StatusCode.ADD}`)
     .then(() => {
-      dispatch(setDataIsSending(false));
       dispatch(fetchPromoFilm());
       dispatch(fetchFilmById(filmId));
+      dispatch(setDataIsSending(false));
     })
     .catch(() => {
       dispatch(setDataIsSending(false));
@@ -92,8 +92,8 @@ const sendFavoriteStatus = (filmId, isFavorite) => (dispatch, _getState, api) =>
 const fetchFilmById = (FilmId) => (dispatch, _getState, api) => (
   api.get(`${APIRoute.FILMS}/${FilmId}`)
     .then(({data}) => {
-      dispatch(setIsFilmByIdLoading(false));
       dispatch(loadFilmById(adaptFilmToClient(data)));
+      dispatch(setIsFilmByIdLoading(false));
     })
     .catch(() => {
       dispatch(setIsFilmByIdLoading(false));

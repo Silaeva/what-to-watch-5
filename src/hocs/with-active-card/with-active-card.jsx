@@ -31,6 +31,11 @@ const withActiveCard = (Component) => {
       });
     }
 
+    componentWillUnmount() {
+      clearTimeout(this._hoverTimeout);
+      this._hoverTimeout = null;
+    }
+
     render() {
       const {activeCard} = this.state;
 

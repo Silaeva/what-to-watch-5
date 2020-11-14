@@ -50,7 +50,7 @@ const AddReviewForm = (props) => {
               <React.Fragment key={starNumber}>
                 <input className="rating__input" id={`star-${starNumber}`} type="radio" name="rating" value={starNumber}
                   disabled={isDataSending}
-                  seted={rating === starNumber}
+                  checked={rating === starNumber}
                   onChange={handleRatingChange}
                 />
                 <label className="rating__label" htmlFor={`star-${starNumber}`}>Rating {starNumber}</label>
