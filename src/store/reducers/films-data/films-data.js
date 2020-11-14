@@ -6,14 +6,17 @@ const initialState = {
   filteredFilms: [],
   favoriteFilms: [],
   promoFilm: {},
+  filmById: {},
   shownFilmsNumber: filmsCount.PER_STEP,
   comments: [],
   isFavoritesLoading: true,
   isFavoritesLoadError: false,
   isCommentsLoading: true,
   isCommentsLoadError: false,
-  isCommentSending: false,
-  isCommentSendError: false
+  isDataSending: false,
+  isDataSendError: false,
+  isFilmByIdLoading: true,
+  isFilmByIdLoadError: false
 };
 
 const getShownFilmsNumber = (state) => {
@@ -64,13 +67,25 @@ const filmsData = (state = initialState, action) => {
       return Object.assign({}, state, {
         isCommentsLoadError: action.payload,
       });
-    case ActionType.SET_COMMENT_IS_SENDING:
+    case ActionType.SET_DATA_IS_SENDING:
       return Object.assign({}, state, {
-        isCommentSending: action.payload,
+        isDataSending: action.payload,
       });
-    case ActionType.SET_COMMENT_SEND_ERROR:
+    case ActionType.SET_DATA_SEND_ERROR:
       return Object.assign({}, state, {
-        isCommentSendError: action.payload,
+        isDataSendError: action.payload,
+      });
+    case ActionType.LOAD_FILM_BY_ID:
+      return Object.assign({}, state, {
+        filmById: action.payload,
+      });
+    case ActionType.SET_FILM_BY_ID_LOADING:
+      return Object.assign({}, state, {
+        isFilmByIdLoading: action.payload,
+      });
+    case ActionType.SET_FILM_BY_ID_LOAD_ERROR:
+      return Object.assign({}, state, {
+        isFilmByIdLoadError: action.payload,
       });
   }
 

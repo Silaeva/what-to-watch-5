@@ -9,7 +9,7 @@ const getUserBlockTemplate = (status) => {
   if (status === AuthorizationStatus.AUTH) {
     return (
       <div className="user-block__avatar">
-        <Link to={AppRoute.ROOT}>
+        <Link to={AppRoute.MY_LIST}>
           <img src="/img/avatar.jpg" alt="User avatar" width="63" height="63" />
         </Link>
       </div>

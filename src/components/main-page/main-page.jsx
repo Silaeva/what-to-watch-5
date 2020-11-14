@@ -5,12 +5,13 @@ import FilmCardListWithBtn from "../film-cards-list/film-card-list-with-btn";
 import PageFooter from "../page-footer/page-footer";
 import UserBlock from "../user-block/user-block";
 import GenresList from "../genres-list/genres-list";
+import MyListButton from "../my-list-button/my-list-button";
 import {connect} from "react-redux";
 import {AppRoute} from "../../route";
 
 const MainPage = (props) => {
   const {promoFilm, onFilmCardClick} = props;
-  const {title, image, genre, year, bgImage, id} = promoFilm;
+  const {title, image, genre, year, bgImage, id, isFavorite} = promoFilm;
 
   return (
     <div>
@@ -54,12 +55,9 @@ const MainPage = (props) => {
                   </svg>
                   <span>Play</span>
                 </Link>
-                <Link to="/mylist" className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </Link>
+
+                <MyListButton id={id} isFavorite={isFavorite} />
+
               </div>
             </div>
           </div>
@@ -90,7 +88,8 @@ MainPage.propTypes = {
     year: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     bgImage: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.number.isRequired,
+    isFavorite: PropTypes.bool.isRequired
   }),
   onFilmCardClick: PropTypes.func.isRequired
 };

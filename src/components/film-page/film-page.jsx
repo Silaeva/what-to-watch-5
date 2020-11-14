@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import FilmCardList from "../film-cards-list/film-card-list";
@@ -6,9 +6,12 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import Tabs from "../tabs/tabs";
+import MyListButton from "../my-list-button/my-list-button";
 import {filmsCount, AuthorizationStatus} from "../../const";
 import {AppRoute} from "../../route";
 import {connect} from "react-redux";
+import {fetchFilmById} from "../../store/api-actions";
+import {setIsFilmByIdLoading} from "../../store/action";
 
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
@@ -17,15 +20,17 @@ const FilmCardListWrapped = withActiveCard(FilmCardList);
 const TabsWrapped = withActiveTab(Tabs);
 
 const FilmPage = (props) => {
-  const {films, onFilmCardClick, currentFilmId, authorizationStatus} = props;
+  const {films, onFilmCardClick, currentFilmId, authorizationStatus, loadFilm, filmById, isFilmByIdLoading, isFilmByIdLoadError} = props;
 
-  const currentFilm = films.find((film) => film.id === currentFilmId);
-  const {title, genre, year, image, id, bgImage, bgColor} = currentFilm;
+  useEffect(() => {
+    loadFilm(currentFilmId);
+  }, [currentFilmId]);
+
+  const {title, genre, year, image, id, bgImage, bgColor, isFavorite} = filmById;
 
   const similarFilms = films.filter((film) => film.genre === genre).slice(0, filmsCount.SIMILAR);
 
   return (
-
     <div>
       <section className="movie-card movie-card--full" style={{backgroundColor: bgColor}}>
         <div className="movie-card__hero">
@@ -58,12 +63,9 @@ const FilmPage = (props) => {
                   </svg>
                   <span>Play</span>
                 </Link>
-                <Link to="/mylist" className="btn btn--list movie-card__button" type="button">
-                  <svg viewBox="0 0 19 20" width="19" height="20">
-                    <use xlinkHref="#add"></use>
-                  </svg>
-                  <span>My list</span>
-                </Link>
+
+                <MyListButton id={id} isFavorite={isFavorite} />
+
                 {
                   authorizationStatus === AuthorizationStatus.AUTH
                     ?
@@ -82,7 +84,7 @@ const FilmPage = (props) => {
               <img src={image} alt={title} width="218" height="327" />
             </div>
 
-            <TabsWrapped film={currentFilm} />
+            <TabsWrapped film={filmById} />
 
           </div>
         </div>
@@ -106,21 +108,37 @@ const FilmPage = (props) => {
 FilmPage.propTypes = {
   currentFilmId: PropTypes.number.isRequired,
   onFilmCardClick: PropTypes.func.isRequired,
-  films: PropTypes.arrayOf(PropTypes.shape({
+  films: PropTypes.array.isRequired,
+  authorizationStatus: PropTypes.string.isRequired,
+  loadFilm: PropTypes.func.isRequired,
+  filmById: PropTypes.shape({
     title: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
     year: PropTypes.number.isRequired,
     image: PropTypes.string.isRequired,
     bgImage: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired
-  })),
-  authorizationStatus: PropTypes.string.isRequired
+    id: PropTypes.number.isRequired,
+    isFavorite: PropTypes.bool.isRequired,
+    bgColor: PropTypes.string.isRequired
+  }),
+  isFilmByIdLoading: PropTypes.bool.isRequired,
+  isFilmByIdLoadError: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = ({DATA, USER}) => ({
   films: DATA.films,
-  authorizationStatus: USER.authorizationStatus
+  authorizationStatus: USER.authorizationStatus,
+  filmById: DATA.filmById,
+  isFilmByIdLoading: DATA.isFilmByIdLoading,
+  isFilmByIdLoadError: DATA.isFilmByIdLoadError,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  loadFilm(id) {
+    dispatch(setIsFilmByIdLoading(true));
+    dispatch(fetchFilmById(id));
+  }
 });
 
 export {FilmPage};
-export default connect(mapStateToProps)(FilmPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FilmPage);

@@ -1,5 +1,5 @@
-import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoadError, setAuthInProgress, setFavoritesIsLoading, setFavoritesLoadError, setCommentsIsLoading, setCommentsLoadError, setCommentIsSending, setCommentSendError} from "./action";
-import {AuthorizationStatus} from "../const";
+import {loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoadError, setAuthInProgress, setFavoritesIsLoading, setFavoritesLoadError, setCommentsIsLoading, setCommentsLoadError, setDataIsSending, setDataSendError, loadFilmById, setIsFilmByIdLoading, setIsFilmByIdLoadError} from "./action";
+import {AuthorizationStatus, StatusCode} from "../const";
 import {APIRoute, AppRoute} from "../route";
 import {adaptFilmToClient, adaptCommentToClient} from "../services/adapters";
 
@@ -67,13 +67,38 @@ const login = ({login: email, password}) => (dispatch, _getState, api) => (
 const sendComment = (filmId, {rating, comment}) => (dispatch, _getState, api) => (
   api.post(APIRoute.COMMENTS + filmId, {rating, comment})
     .then(() => {
-      dispatch(setCommentIsSending(false));
+      dispatch(setDataIsSending(false));
       dispatch(redirectToRoute(AppRoute.FILMS + filmId));
     })
     .catch(() => {
-      dispatch(setCommentIsSending(false));
-      dispatch(setCommentSendError(true));
+      dispatch(setDataIsSending(false));
+      dispatch(setDataSendError(true));
     })
 );
 
-export {fetchFilmsList, fetchPromoFilm, fetchFavoriteFilms, fetchComments, checkAuth, login, sendComment};
+const sendFavoriteStatus = (filmId, isFavorite) => (dispatch, _getState, api) => (
+  api.post(`${APIRoute.FAVORITE}/${filmId}/${isFavorite ? StatusCode.REMOVE : StatusCode.ADD}`)
+    .then(() => {
+      dispatch(setDataIsSending(false));
+      dispatch(fetchPromoFilm());
+      dispatch(fetchFilmById(filmId));
+    })
+    .catch(() => {
+      dispatch(setDataIsSending(false));
+      dispatch(setDataSendError(true));
+    })
+);
+
+const fetchFilmById = (FilmId) => (dispatch, _getState, api) => (
+  api.get(`${APIRoute.FILMS}/${FilmId}`)
+    .then(({data}) => {
+      dispatch(setIsFilmByIdLoading(false));
+      dispatch(loadFilmById(adaptFilmToClient(data)));
+    })
+    .catch(() => {
+      dispatch(setIsFilmByIdLoading(false));
+      dispatch(setIsFilmByIdLoadError(true));
+    })
+);
+
+export {fetchFilmsList, fetchPromoFilm, fetchFavoriteFilms, fetchComments, checkAuth, login, sendComment, sendFavoriteStatus, fetchFilmById};
