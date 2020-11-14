@@ -42,6 +42,7 @@ const filmsData = (state = initialState, action) => {
     case ActionType.LOAD_PROMO:
       return Object.assign({}, state, {
         promoFilm: action.payload,
+        filmById: action.payload
       });
     case ActionType.LOAD_FAVORITES:
       return Object.assign({}, state, {

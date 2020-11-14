@@ -7,6 +7,8 @@ import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import Tabs from "../tabs/tabs";
 import MyListButton from "../my-list-button/my-list-button";
+import Loading from "../loading/loading";
+import ErrorScreen from "../error-screen/error-screen";
 import {filmsCount, AuthorizationStatus} from "../../const";
 import {AppRoute} from "../../route";
 import {connect} from "react-redux";
@@ -26,8 +28,17 @@ const FilmPage = (props) => {
     loadFilm(currentFilmId);
   }, [currentFilmId]);
 
-  const {title, genre, year, image, id, bgImage, bgColor, isFavorite} = filmById;
+  if (isFilmByIdLoading) {
+    return (
+      <Loading />
+    );
+  } else if (isFilmByIdLoadError) {
+    return (
+      <ErrorScreen />
+    );
+  }
 
+  const {title, genre, year, image, id, bgImage, bgColor, isFavorite} = filmById;
   const similarFilms = films.filter((film) => film.genre === genre).slice(0, filmsCount.SIMILAR);
 
   return (
