@@ -16,8 +16,11 @@ const ActionType = {
   SET_FAVORITES_LOAD_ERROR: `SET_FAVORITES_LOAD_ERROR`,
   SET_COMMENTS_IS_LOADING: `SET_COMMENTS_IS_LOADING`,
   SET_COMMENTS_LOAD_ERROR: `SET_COMMENTS_LOAD_ERROR`,
-  SET_COMMENT_IS_SENDING: `SET_COMMENT_IS_SENDING`,
-  SET_COMMENT_SEND_ERROR: `SET_COMMENT_SEND_ERROR`
+  SET_DATA_IS_SENDING: `SET_DATA_IS_SENDING`,
+  SET_DATA_SEND_ERROR: `SET_DATA_SEND_ERROR`,
+  LOAD_FILM_BY_ID: `LOAD_FILM_BY_ID`,
+  SET_FILM_BY_ID_LOADING: `SET_FILM_BY_ID_LOADING`,
+  SET_FILM_BY_ID_LOAD_ERROR: `SET_FILM_BY_ID_LOAD_ERROR`
 };
 
 const changeFilter = (genre) => ({
@@ -98,14 +101,29 @@ const setCommentsLoadError = (bool) => ({
   payload: bool
 });
 
-const setCommentIsSending = (bool) => ({
-  type: ActionType.SET_COMMENT_IS_SENDING,
+const setDataIsSending = (bool) => ({
+  type: ActionType.SET_DATA_IS_SENDING,
   payload: bool
 });
 
-const setCommentSendError = (bool) => ({
-  type: ActionType.SET_COMMENT_SEND_ERROR,
+const setDataSendError = (bool) => ({
+  type: ActionType.SET_DATA_SEND_ERROR,
   payload: bool
 });
 
-export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, setAuthInProgress, setFavoritesIsLoading, setFavoritesLoadError, setCommentsIsLoading, setCommentsLoadError, setCommentIsSending, setCommentSendError};
+const loadFilmById = (film) => ({
+  type: ActionType.LOAD_FILM_BY_ID,
+  payload: film
+});
+
+const setIsFilmByIdLoading = (bool) => ({
+  type: ActionType.SET_FILM_BY_ID_LOADING,
+  payload: bool
+});
+
+const setIsFilmByIdLoadError = (bool) => ({
+  type: ActionType.SET_FILM_BY_ID_LOAD_ERROR,
+  payload: bool
+});
+
+export {ActionType, changeFilter, clearShownFilms, showMoreFilms, loadFilms, loadPromo, loadFavorites, loadComments, requireAuthorization, redirectToRoute, toggleIsLoading, toggleIsLoadError, setAuthInProgress, setFavoritesIsLoading, setFavoritesLoadError, setCommentsIsLoading, setCommentsLoadError, setDataIsSending, setDataSendError, loadFilmById, setIsFilmByIdLoading, setIsFilmByIdLoadError};

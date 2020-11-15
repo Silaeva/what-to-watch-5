@@ -11,7 +11,7 @@ const Player = (props) => {
     if (currentFilmId === promoFilm.id) {
       return promoFilm;
     }
-    return films.find((film) => film.id === +currentFilmId);
+    return films.find((film) => film.id === currentFilmId);
   };
 
   const togglerPosition = progress / duration * 100;
@@ -72,7 +72,7 @@ Player.propTypes = {
   onPlayBtnClick: PropTypes.func.isRequired,
   onFullscreenClick: PropTypes.func.isRequired,
   renderPlayer: PropTypes.func.isRequired,
-  currentFilmId: PropTypes.string.isRequired,
+  currentFilmId: PropTypes.number.isRequired,
   films: PropTypes.array.isRequired,
   promoFilm: PropTypes.object.isRequired,
   isPlaying: PropTypes.bool.isRequired

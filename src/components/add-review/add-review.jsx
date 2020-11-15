@@ -16,10 +16,10 @@ const AddReview = (props) => {
 
   const currentFilm = films.find((film) => film.id === currentFilmId);
 
-  const {bgImage, title, image} = currentFilm;
+  const {bgImage, title, image, bgColor} = currentFilm;
 
   return (
-    <section className="movie-card movie-card--full">
+    <section className="movie-card movie-card--full" style={{backgroundColor: bgColor}}>
       <div className="movie-card__header">
         <div className="movie-card__bg">
           <img src={bgImage} alt={title} />

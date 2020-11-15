@@ -14,15 +14,9 @@ const withLoginInfo = (Component) => {
     }
 
     _handleChange(evt) {
-      if (evt.target.name.includes(`email`)) {
-        this.setState({
-          email: evt.target.value
-        });
-      } else if (evt.target.name.includes(`password`)) {
-        this.setState({
-          password: evt.target.value
-        });
-      }
+      this.setState({
+        [evt.target.name]: evt.target.value
+      });
     }
 
     render() {

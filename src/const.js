@@ -15,4 +15,9 @@ const AuthorizationStatus = {
   NO_AUTH: `NO_AUTH`,
 };
 
-export {filmsCount, FilmTab, AuthorizationStatus};
+const StatusCode = {
+  ADD: 1,
+  REMOVE: 0
+};
+
+export {filmsCount, FilmTab, AuthorizationStatus, StatusCode};

@@ -2,12 +2,12 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {sendComment} from "../../store/api-actions";
-import {setCommentIsSending} from "../../store/action";
+import {setDataIsSending} from "../../store/action";
 
 const STAR_NUMBERS = [`1`, `2`, `3`, `4`, `5`];
 
 const AddReviewForm = (props) => {
-  const {rating, comment, handleRatingChange, handleCommentChange, onPostBtnClick, currentFilmId, isCommentSending, isCommentSendError, isReviewValid} = props;
+  const {rating, comment, handleRatingChange, handleCommentChange, onPostBtnClick, currentFilmId, isDataSending, isDataSendError, isReviewValid} = props;
 
   const handlePostBtnClick = (evt) => {
     evt.preventDefault();
@@ -21,11 +21,11 @@ const AddReviewForm = (props) => {
   };
 
   const getMessage = () => {
-    if (isCommentSending) {
+    if (isDataSending) {
       return (
         <p>Sending your review...</p>
       );
-    } else if (isCommentSendError) {
+    } else if (isDataSendError) {
       return (
         <p style={{color: `#ff6347`}}>Sorry, something went wrong! Please, try again later...</p>
       );
@@ -49,8 +49,8 @@ const AddReviewForm = (props) => {
             return (
               <React.Fragment key={starNumber}>
                 <input className="rating__input" id={`star-${starNumber}`} type="radio" name="rating" value={starNumber}
-                  disabled={isCommentSending}
-                  seted={rating === starNumber}
+                  disabled={isDataSending}
+                  checked={rating === starNumber}
                   onChange={handleRatingChange}
                 />
                 <label className="rating__label" htmlFor={`star-${starNumber}`}>Rating {starNumber}</label>
@@ -67,7 +67,7 @@ const AddReviewForm = (props) => {
           name="review-text" id="review-text"
           placeholder="Review text"
           onChange={handleCommentChange}
-          disabled={isCommentSending}
+          disabled={isDataSending}
           maxLength="400"
         >
         </textarea>
@@ -93,19 +93,19 @@ AddReviewForm.propTypes = {
   handleCommentChange: PropTypes.func.isRequired,
   onPostBtnClick: PropTypes.func.isRequired,
   currentFilmId: PropTypes.number.isRequired,
-  isCommentSending: PropTypes.bool.isRequired,
-  isCommentSendError: PropTypes.bool.isRequired,
+  isDataSending: PropTypes.bool.isRequired,
+  isDataSendError: PropTypes.bool.isRequired,
   isReviewValid: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = ({DATA}) => ({
-  isCommentSending: DATA.isCommentSending,
-  isCommentSendError: DATA.isCommentSendError
+  isDataSending: DATA.isDataSending,
+  isDataSendError: DATA.isDataSendError
 });
 
 const mapDispatchToProps = (dispatch) => ({
   onPostBtnClick(filmId, commentData) {
-    dispatch(setCommentIsSending(true));
+    dispatch(setDataIsSending(true));
     dispatch(sendComment(filmId, commentData));
   }
 });
