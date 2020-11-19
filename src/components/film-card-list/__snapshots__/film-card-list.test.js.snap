@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should FilmCardList render correctly 1`] = `
+<div
+  className="catalog__movies-list"
+>
+  <FilmCard
+    id={1}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg"
+    isActive={true}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    title="Pulp Fiction"
+  />
+  <FilmCard
+    id={2}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    title="Snatch"
+  />
+  <FilmCard
+    id={3}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    title="War of the Worlds"
+  />
+  <FilmCard
+    id={4}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    title="Pulp Fiction"
+  />
+  <FilmCard
+    id={5}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    title="Snatch"
+  />
+  <FilmCard
+    id={6}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    title="War of the Worlds"
+  />
+  <FilmCard
+    id={7}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    title="Pulp Fiction"
+  />
+  <FilmCard
+    id={8}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    title="Snatch"
+  />
+  <FilmCard
+    id={9}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    title="War of the Worlds"
+  />
+  <FilmCard
+    id={10}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    title="Pulp Fiction"
+  />
+  <FilmCard
+    id={11}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+    title="Snatch"
+  />
+  <FilmCard
+    id={12}
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg"
+    isActive={false}
+    onFilmCardClick={[Function]}
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+    previewVideo="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+    title="War of the Worlds"
+  />
+</div>
+`;
