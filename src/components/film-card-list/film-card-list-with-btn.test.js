@@ -11,10 +11,10 @@ describe(`Should FilmCardListWithBtn render correctly`, () => {
   it(`With default films amount shown`, () => {
     const tree = renderer
       .create(
-        <FilmCardListWithBtn
-          filteredFilms={films}
-          shownFilmsNumber={filmsCount.PER_STEP}
-        />)
+          <FilmCardListWithBtn
+            filteredFilms={films}
+            shownFilmsNumber={filmsCount.PER_STEP}
+          />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -23,10 +23,10 @@ describe(`Should FilmCardListWithBtn render correctly`, () => {
   it(`With all films shown`, () => {
     const tree = renderer
       .create(
-        <FilmCardListWithBtn
-          filteredFilms={films}
-          shownFilmsNumber={films.length}
-        />)
+          <FilmCardListWithBtn
+            filteredFilms={films}
+            shownFilmsNumber={films.length}
+          />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();

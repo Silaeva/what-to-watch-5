@@ -9,16 +9,16 @@ describe(`Should MyListButton render correctly`, () => {
   it(`If film is favorite`, () => {
     const tree = renderer
       .create(
-        <BrowserRouter>
-          <MyListButton
-            id={1}
-            isFavorite={true}
-            onMyListClick={noop}
-            authorizationStatus={AuthorizationStatus.AUTH}
-            isDataSending={false}
-            isDataSendError={false}
-          />
-        </BrowserRouter>)
+          <BrowserRouter>
+            <MyListButton
+              id={1}
+              isFavorite={true}
+              onMyListClick={noop}
+              authorizationStatus={AuthorizationStatus.AUTH}
+              isDataSending={false}
+              isDataSendError={false}
+            />
+          </BrowserRouter>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -27,16 +27,16 @@ describe(`Should MyListButton render correctly`, () => {
   it(`If film is not favorite`, () => {
     const tree = renderer
       .create(
-        <BrowserRouter>
-          <MyListButton
-           id={1}
-           isFavorite={false}
-           onMyListClick={noop}
-           authorizationStatus={AuthorizationStatus.AUTH}
-           isDataSending={false}
-           isDataSendError={false}
-          />
-        </BrowserRouter>)
+          <BrowserRouter>
+            <MyListButton
+              id={1}
+              isFavorite={false}
+              onMyListClick={noop}
+              authorizationStatus={AuthorizationStatus.AUTH}
+              isDataSending={false}
+              isDataSendError={false}
+            />
+          </BrowserRouter>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -45,16 +45,16 @@ describe(`Should MyListButton render correctly`, () => {
   it(`When data is sending`, () => {
     const tree = renderer
       .create(
-        <BrowserRouter>
-          <MyListButton
-            id={1}
-            isFavorite={false}
-            onMyListClick={noop}
-            authorizationStatus={AuthorizationStatus.AUTH}
-            isDataSending={true}
-            isDataSendError={false}
-          />
-        </BrowserRouter>)
+          <BrowserRouter>
+            <MyListButton
+              id={1}
+              isFavorite={false}
+              onMyListClick={noop}
+              authorizationStatus={AuthorizationStatus.AUTH}
+              isDataSending={true}
+              isDataSendError={false}
+            />
+          </BrowserRouter>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -63,16 +63,16 @@ describe(`Should MyListButton render correctly`, () => {
   it(`With data sending error`, () => {
     const tree = renderer
       .create(
-        <BrowserRouter>
-          <MyListButton
-            id={1}
-            isFavorite={false}
-            onMyListClick={noop}
-            authorizationStatus={AuthorizationStatus.AUTH}
-            isDataSending={false}
-            isDataSendError={true}
-          />
-        </BrowserRouter>)
+          <BrowserRouter>
+            <MyListButton
+              id={1}
+              isFavorite={false}
+              onMyListClick={noop}
+              authorizationStatus={AuthorizationStatus.AUTH}
+              isDataSending={false}
+              isDataSendError={true}
+            />
+          </BrowserRouter>)
       .toJSON();
 
     expect(tree).toMatchSnapshot();

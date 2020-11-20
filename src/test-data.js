@@ -19,8 +19,7 @@ const films = [
     bgImage: `https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg`,
     bgColor: `#795433`,
     isFavorite: false
-  }
-  ,
+  },
   {
     srcVideo: `http://media.xiph.org/mango/tears_of_steel_1080p.webm`,
     previewVideo: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
@@ -83,8 +82,7 @@ const films = [
     bgImage: `https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg`,
     bgColor: `#795433`,
     isFavorite: false
-  }
-  ,
+  },
   {
     srcVideo: `http://media.xiph.org/mango/tears_of_steel_1080p.webm`,
     previewVideo: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
@@ -147,8 +145,7 @@ const films = [
     bgImage: `https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg`,
     bgColor: `#795433`,
     isFavorite: false
-  }
-  ,
+  },
   {
     srcVideo: `http://media.xiph.org/mango/tears_of_steel_1080p.webm`,
     previewVideo: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
@@ -211,8 +208,7 @@ const films = [
     bgImage: `https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg`,
     bgColor: `#795433`,
     isFavorite: false
-  }
-  ,
+  },
   {
     srcVideo: `http://media.xiph.org/mango/tears_of_steel_1080p.webm`,
     previewVideo: `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`,
