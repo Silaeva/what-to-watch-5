@@ -61,7 +61,7 @@ const checkAuth = () => (dispatch, _getState, api) => (
 const login = ({login: email, password}) => (dispatch, _getState, api) => (
   api.post(APIRoute.LOGIN, {email, password})
     .then(() => dispatch(requireAuthorization(AuthorizationStatus.AUTH)))
-    .then(() => dispatch(redirectToRoute(APIRoute.ROOT)))
+    .then(() => dispatch(redirectToRoute(AppRoute.ROOT)))
 );
 
 const sendComment = (filmId, {rating, comment}) => (dispatch, _getState, api) => (

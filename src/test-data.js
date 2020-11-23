@@ -280,6 +280,6 @@ const comments = [
 
 const noop = () => {};
 
-const activeGenre = `Comedy`;
+const genre = `Comedy`;
 
-export {films, comments, noop, activeGenre};
+export {films, comments, noop, genre};

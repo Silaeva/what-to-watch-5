@@ -1,5 +1,5 @@
 import {ActionType} from "../../action";
-import {filmsCount} from "../../../const";
+// import {filmsCount} from "../../../const";
 
 const initialState = {
   activeGenre: `All genres`,
@@ -12,10 +12,6 @@ const appState = (state = initialState, action) => {
     case ActionType.CHANGE_FILTER:
       return Object.assign({}, state, {
         activeGenre: action.payload
-      });
-    case ActionType.CLEAR_SHOWN_FILMS:
-      return Object.assign({}, state, {
-        shownFilmsNumber: filmsCount.PER_STEP
       });
     case ActionType.TOGGLE_IS_LOADING:
       return Object.assign({}, state, {
