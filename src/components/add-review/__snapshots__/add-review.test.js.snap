@@ -1,0 +1,86 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should AddReview render correctly 1`] = `
+<section
+  className="movie-card movie-card--full"
+  style={
+    Object {
+      "backgroundColor": "#73B39A",
+    }
+  }
+>
+  <div
+    className="movie-card__header"
+  >
+    <div
+      className="movie-card__bg"
+    >
+      <img
+        alt="Fantastic Beasts: The Crimes of Grindelwald"
+        src="https://assets.htmlacademy.ru/intensives/javascript-3/film/background/bronson.jpg"
+      />
+    </div>
+    <h1
+      className="visually-hidden"
+    >
+      WTW
+    </h1>
+    <header
+      className="page-header"
+    >
+      <LogoHeader />
+      <nav
+        className="breadcrumbs"
+      >
+        <ul
+          className="breadcrumbs__list"
+        >
+          <li
+            className="breadcrumbs__item"
+          >
+            <a
+              className="breadcrumbs__link"
+              href="/films/1"
+              onClick={[Function]}
+            >
+              Fantastic Beasts: The Crimes of Grindelwald
+            </a>
+          </li>
+          <li
+            className="breadcrumbs__item"
+          >
+            <a
+              className="breadcrumbs__link"
+            >
+              Add review
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <UserBlock />
+    </header>
+    <div
+      className="movie-card__poster movie-card__poster--small"
+    >
+      <img
+        alt="Fantastic Beasts: The Crimes of Grindelwald"
+        height="327"
+        src="https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/bronson.jpg"
+        width="218"
+      />
+    </div>
+  </div>
+  <div
+    className="add-review"
+  >
+    <AddReviewForm
+      comment=""
+      currentFilmId={1}
+      handleCommentChange={[Function]}
+      handleRatingChange={[Function]}
+      isReviewValid={false}
+      rating=""
+    />
+  </div>
+</section>
+`;

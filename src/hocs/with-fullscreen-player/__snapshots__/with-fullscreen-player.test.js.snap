@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`withFullscreenPlayer is rendered correctly 1`] = `
+<div>
+  <video
+    className="player__video"
+    poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg"
+    src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4"
+  />
+</div>
+`;

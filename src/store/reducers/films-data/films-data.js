@@ -39,6 +39,10 @@ const filmsData = (state = initialState, action) => {
       return Object.assign({}, state, {
         shownFilmsNumber: getShownFilmsNumber(state)
       });
+    case ActionType.CLEAR_SHOWN_FILMS:
+      return Object.assign({}, state, {
+        shownFilmsNumber: filmsCount.PER_STEP
+      });
     case ActionType.LOAD_PROMO:
       return Object.assign({}, state, {
         promoFilm: action.payload

@@ -35,4 +35,5 @@ FilmCard.propTypes = {
   isActive: PropTypes.bool.isRequired
 };
 
+export {FilmCard};
 export default React.memo(FilmCard);

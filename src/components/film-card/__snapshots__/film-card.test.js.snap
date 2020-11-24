@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should FilmCard render correctly With active 1`] = `
+<article
+  className="small-movie-card catalog__movies-card"
+  data-id={1}
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <VideoPlayer
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Pulp_Fiction.jpg"
+    isActive={true}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+  />
+  <h3
+    className="small-movie-card__title"
+  >
+    <a
+      className="small-movie-card__link"
+      href="/films/1"
+      onClick={[Function]}
+    >
+      Pulp Fiction
+    </a>
+  </h3>
+</article>
+`;
+
+exports[`Should FilmCard render correctly with no active 1`] = `
+<article
+  className="small-movie-card catalog__movies-card"
+  data-id={2}
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+>
+  <VideoPlayer
+    image="https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Pulp_Fiction.jpg"
+    isActive={false}
+    previewVideo="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+  />
+  <h3
+    className="small-movie-card__title"
+  >
+    <a
+      className="small-movie-card__link"
+      href="/films/2"
+      onClick={[Function]}
+    >
+      Pulp Fiction
+    </a>
+  </h3>
+</article>
+`;

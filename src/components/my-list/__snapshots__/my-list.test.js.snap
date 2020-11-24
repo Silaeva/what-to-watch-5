@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should MyList render correctly When films is loading 1`] = `
+<div
+  className="user-page"
+>
+  <header
+    className="page-header user-page__head"
+  >
+    <LogoHeader />
+    <h1
+      className="page-title user-page__title"
+    >
+      My list
+    </h1>
+    <UserBlock />
+  </header>
+  <section
+    className="catalog"
+  >
+    <h2
+      className="catalog__title visually-hidden"
+    >
+      Catalog
+    </h2>
+    <p>
+      Loading...
+    </p>
+  </section>
+  <PageFooter />
+</div>
+`;
+
+exports[`Should MyList render correctly When films load error 1`] = `
+<div
+  className="user-page"
+>
+  <header
+    className="page-header user-page__head"
+  >
+    <LogoHeader />
+    <h1
+      className="page-title user-page__title"
+    >
+      My list
+    </h1>
+    <UserBlock />
+  </header>
+  <section
+    className="catalog"
+  >
+    <h2
+      className="catalog__title visually-hidden"
+    >
+      Catalog
+    </h2>
+    <p>
+      Sorry, something went wrong!
+    </p>
+  </section>
+  <PageFooter />
+</div>
+`;
+
+exports[`Should MyList render correctly When load success 1`] = `
+<div
+  className="user-page"
+>
+  <header
+    className="page-header user-page__head"
+  >
+    <LogoHeader />
+    <h1
+      className="page-title user-page__title"
+    >
+      My list
+    </h1>
+    <UserBlock />
+  </header>
+  <section
+    className="catalog"
+  >
+    <h2
+      className="catalog__title visually-hidden"
+    >
+      Catalog
+    </h2>
+    <FilmCardList
+      activeCard={-1}
+      films={
+        Array [
+          Object {
+            "actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
+            "bgColor": "#795433",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg",
+            "description": "The lives of two mob hitmen, a boxer, a gangster & his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+            "director": "Quentin Tarantino",
+            "duration": 153,
+            "genre": "Crime",
+            "id": 1,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Pulp_Fiction.jpg",
+            "isFavorite": false,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 163242,
+              "score": 1.5,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "Pulp Fiction",
+            "year": 1994,
+          },
+          Object {
+            "actors": "Jason Statham, Brad Pitt, Benicio Del Toro",
+            "bgColor": "#FDFDFC",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Snatch.jpg",
+            "description": "Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond",
+            "director": "Guy Ritchie",
+            "duration": 104,
+            "genre": "Comedy",
+            "id": 2,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Snatch.jpg",
+            "isFavorite": true,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 54654654,
+              "score": 5,
+            },
+            "srcVideo": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
+            "title": "Snatch",
+            "year": 2000,
+          },
+          Object {
+            "actors": "Tom Cruise, Dakota Fanning, Tim Robbins",
+            "bgColor": "#9B7E61",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/War_of_the_Worlds.jpg",
+            "description": "As Earth is invaded by alien tripod fighting machines, one family fights for survival.",
+            "director": "Steven Spielberg",
+            "duration": 116,
+            "genre": "Adventure",
+            "id": 3,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Snatch.jpg",
+            "isFavorite": true,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg",
+            "previewVideo": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+            "rating": Object {
+              "count": 23425,
+              "score": 9,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "War of the Worlds",
+            "year": 2005,
+          },
+          Object {
+            "actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
+            "bgColor": "#795433",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg",
+            "description": "The lives of two mob hitmen, a boxer, a gangster & his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+            "director": "Quentin Tarantino",
+            "duration": 153,
+            "genre": "Crime",
+            "id": 4,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Pulp_Fiction.jpg",
+            "isFavorite": false,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 163242,
+              "score": 1.5,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "Pulp Fiction",
+            "year": 1994,
+          },
+          Object {
+            "actors": "Jason Statham, Brad Pitt, Benicio Del Toro",
+            "bgColor": "#FDFDFC",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Snatch.jpg",
+            "description": "Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond",
+            "director": "Guy Ritchie",
+            "duration": 104,
+            "genre": "Comedy",
+            "id": 5,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Snatch.jpg",
+            "isFavorite": true,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 54654654,
+              "score": 5,
+            },
+            "srcVideo": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
+            "title": "Snatch",
+            "year": 2000,
+          },
+          Object {
+            "actors": "Tom Cruise, Dakota Fanning, Tim Robbins",
+            "bgColor": "#9B7E61",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/War_of_the_Worlds.jpg",
+            "description": "As Earth is invaded by alien tripod fighting machines, one family fights for survival.",
+            "director": "Steven Spielberg",
+            "duration": 116,
+            "genre": "Adventure",
+            "id": 6,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Snatch.jpg",
+            "isFavorite": true,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg",
+            "previewVideo": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+            "rating": Object {
+              "count": 23425,
+              "score": 9,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "War of the Worlds",
+            "year": 2005,
+          },
+          Object {
+            "actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
+            "bgColor": "#795433",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg",
+            "description": "The lives of two mob hitmen, a boxer, a gangster & his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+            "director": "Quentin Tarantino",
+            "duration": 153,
+            "genre": "Crime",
+            "id": 7,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Pulp_Fiction.jpg",
+            "isFavorite": false,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 163242,
+              "score": 1.5,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "Pulp Fiction",
+            "year": 1994,
+          },
+          Object {
+            "actors": "Jason Statham, Brad Pitt, Benicio Del Toro",
+            "bgColor": "#FDFDFC",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Snatch.jpg",
+            "description": "Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond",
+            "director": "Guy Ritchie",
+            "duration": 104,
+            "genre": "Comedy",
+            "id": 8,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Snatch.jpg",
+            "isFavorite": true,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 54654654,
+              "score": 5,
+            },
+            "srcVideo": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
+            "title": "Snatch",
+            "year": 2000,
+          },
+          Object {
+            "actors": "Tom Cruise, Dakota Fanning, Tim Robbins",
+            "bgColor": "#9B7E61",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/War_of_the_Worlds.jpg",
+            "description": "As Earth is invaded by alien tripod fighting machines, one family fights for survival.",
+            "director": "Steven Spielberg",
+            "duration": 116,
+            "genre": "Adventure",
+            "id": 9,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Snatch.jpg",
+            "isFavorite": true,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg",
+            "previewVideo": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+            "rating": Object {
+              "count": 23425,
+              "score": 9,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "War of the Worlds",
+            "year": 2005,
+          },
+          Object {
+            "actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
+            "bgColor": "#795433",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg",
+            "description": "The lives of two mob hitmen, a boxer, a gangster & his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+            "director": "Quentin Tarantino",
+            "duration": 153,
+            "genre": "Crime",
+            "id": 10,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Pulp_Fiction.jpg",
+            "isFavorite": false,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 163242,
+              "score": 1.5,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "Pulp Fiction",
+            "year": 1994,
+          },
+          Object {
+            "actors": "Jason Statham, Brad Pitt, Benicio Del Toro",
+            "bgColor": "#FDFDFC",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Snatch.jpg",
+            "description": "Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond",
+            "director": "Guy Ritchie",
+            "duration": 104,
+            "genre": "Comedy",
+            "id": 11,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Snatch.jpg",
+            "isFavorite": true,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 54654654,
+              "score": 5,
+            },
+            "srcVideo": "http://media.xiph.org/mango/tears_of_steel_1080p.webm",
+            "title": "Snatch",
+            "year": 2000,
+          },
+          Object {
+            "actors": "Tom Cruise, Dakota Fanning, Tim Robbins",
+            "bgColor": "#9B7E61",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/War_of_the_Worlds.jpg",
+            "description": "As Earth is invaded by alien tripod fighting machines, one family fights for survival.",
+            "director": "Steven Spielberg",
+            "duration": 116,
+            "genre": "Adventure",
+            "id": 12,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Snatch.jpg",
+            "isFavorite": true,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/snatch.jpg",
+            "previewVideo": "https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4",
+            "rating": Object {
+              "count": 23425,
+              "score": 9,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "War of the Worlds",
+            "year": 2005,
+          },
+        ]
+      }
+      handleActiveCard={[Function]}
+      handleMouseLeave={[Function]}
+      onFilmCardClick={[Function]}
+    />
+  </section>
+  <PageFooter />
+</div>
+`;

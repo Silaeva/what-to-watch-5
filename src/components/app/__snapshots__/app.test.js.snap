@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should App render correctly When page loading 1`] = `
+<MainPage
+  onFilmCardClick={[Function]}
+/>
+`;
+
+exports[`Should App render correctly With authorization in progress 1`] = `
+<MainPage
+  onFilmCardClick={[Function]}
+/>
+`;
+
+exports[`Should App render correctly With loading success 1`] = `
+<MainPage
+  onFilmCardClick={[Function]}
+/>
+`;
+
+exports[`Should App render correctly With page loading error 1`] = `<ErrorScreen />`;
