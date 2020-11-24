@@ -3,7 +3,7 @@ import {createAPI} from "../../../services/api";
 import {adaptFilmToServer, adaptCommentToServer} from "../../../services/adapters";
 import {ActionType} from "../../action";
 import {StatusCode, filmsCount} from "../../../const";
-import {APIRoute} from "../../../route";
+import {APIRoute, AppRoute} from "../../../route";
 import {fetchFilmsList, fetchPromoFilm, fetchFavoriteFilms, fetchComments, fetchFilmById, sendComment, sendFavoriteStatus} from "../../api-actions";
 import {filmsData} from "./films-data";
 import {films, comments, noop} from "../../../test-data";
@@ -170,7 +170,7 @@ describe(`Async operation work correctly`, () => {
     const commentsFromServer = comments.map((comment) => adaptCommentToServer(comment));
 
     apiMock
-      .onGet(`${APIRoute.COMMENTS}/${id}`)
+      .onGet(APIRoute.COMMENTS + id)
       .reply(200, commentsFromServer);
 
     return commentsLoader(dispatch, noop, api)
@@ -180,7 +180,7 @@ describe(`Async operation work correctly`, () => {
           type: ActionType.LOAD_COMMENTS,
           payload: comments,
         });
-        expect(dispatch).toHaveBeenNthCalledWith(1, {
+        expect(dispatch).toHaveBeenNthCalledWith(2, {
           type: ActionType.SET_COMMENTS_IS_LOADING,
           payload: false,
         });
@@ -219,20 +219,20 @@ describe(`Async operation work correctly`, () => {
     const postCommentLoader = sendComment(1, {rating: `3`, comment: `comment`});
 
     apiMock
-      .onPost(`${APIRoute.COMMENTS}/${id}`, {rating: `3`, comment: `comment`})
+      .onPost(APIRoute.COMMENTS + id, {rating: `3`, comment: `comment`})
       .reply(200, [{fake: true}]);
 
     return postCommentLoader(dispatch, noop, api)
       .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(2);
-        // expect(dispatch).toHaveBeenNthCalledWith(1, {
-        //   type: ActionType.SET_DATA_IS_SENDING,
-        //   payload: false,
-        // });
-        // expect(dispatch).toHaveBeenNthCalledWith(1, {
-        //   type: ActionType.REDIRECT_TO_ROUTE,
-        //   payload: `${APIRoute.FILMS}/${id}`,
-        // });
+        expect(dispatch).toHaveBeenNthCalledWith(2, {
+          type: ActionType.SET_DATA_IS_SENDING,
+          payload: false,
+        });
+        expect(dispatch).toHaveBeenNthCalledWith(1, {
+          type: ActionType.REDIRECT_TO_ROUTE,
+          payload: AppRoute.FILMS + id,
+        });
       });
   });
 
@@ -250,22 +250,6 @@ describe(`Async operation work correctly`, () => {
     return sendFavStatusLoader(dispatch, noop, api)
       .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(3);
-        // expect(dispatch).toHaveBeenNthCalledWith(1, {
-        //   type: ActionType.LOAD_PROMO,
-        //   payload: films[0],
-        // });
-        // expect(dispatch).toHaveBeenNthCalledWith(1, {
-        //   type: ActionType.LOAD_FILM_BY_ID,
-        //   payload: films[0],
-        // });
-        // expect(dispatch).toHaveBeenNthCalledWith(2, {
-        //   type: ActionType.SET_FILM_BY_ID_LOADING,
-        //   payload: false,
-        // });
-        // expect(dispatch).toHaveBeenNthCalledWith(2, {
-        //   type: ActionType.SET_DATA_IS_SENDING,
-        //   payload: false,
-        // });
       });
   });
 
