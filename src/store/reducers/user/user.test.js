@@ -37,14 +37,18 @@ describe(`Async operation work correctly`, () => {
 
     apiMock
       .onGet(APIRoute.LOGIN)
-      .reply(200, [{fake: true}]);
+      .reply(200, {fake: true});
 
     return checkAuthLoader(dispatch, noop, api)
       .then(() => {
-        expect(dispatch).toHaveBeenCalledTimes(1);
+        expect(dispatch).toHaveBeenCalledTimes(2);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: ActionType.REQUIRED_AUTHORIZATION,
           payload: AuthorizationStatus.AUTH,
+        });
+        expect(dispatch).toHaveBeenNthCalledWith(2, {
+          type: ActionType.SET_AUTH_PROGRESS,
+          payload: false
         });
       });
   });
@@ -57,7 +61,7 @@ describe(`Async operation work correctly`, () => {
 
     apiMock
       .onPost(APIRoute.LOGIN)
-      .reply(200, [{fake: true}]);
+      .reply(200, {fake: true});
 
     return loginLoader(dispatch, noop, api)
       .then(() => {
