@@ -1,9 +1,9 @@
 import {Rating} from "./const";
 
-const formatFilmDuration = (minutes) => {
-  const hours = Math.floor(minutes / 60);
-  const mins = Math.floor(minutes % 60);
-  return hours === 0 ? `${mins}m` : `${hours}h ${mins}m`;
+const formatFilmDuration = (durationInMinutes) => {
+  const hours = Math.floor(durationInMinutes / 60);
+  const minutes = Math.floor(durationInMinutes % 60);
+  return hours === 0 ? `${minutes}m` : `${hours}h ${minutes}m`;
 };
 
 const formatDate = (date) => {
