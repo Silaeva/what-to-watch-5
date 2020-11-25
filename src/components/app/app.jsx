@@ -21,9 +21,9 @@ const Player = withFullscreenPlayer(VideoPlayer);
 const SignInWrapped = withLoginInfo(SignIn);
 
 const App = (props) => {
-  const {isloading, isLoadingError, authInProgress} = props;
+  const {isLoading, isLoadingError, authInProgress} = props;
 
-  if (isloading && authInProgress) {
+  if (isLoading && authInProgress) {
     return (
       <Loading />
     );
@@ -97,13 +97,13 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  isloading: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
   isLoadingError: PropTypes.bool.isRequired,
   authInProgress: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = ({STATE, USER}) => ({
-  isloading: STATE.isloading,
+  isLoading: STATE.isLoading,
   isLoadingError: STATE.isLoadingError,
   authInProgress: USER.authInProgress
 });
