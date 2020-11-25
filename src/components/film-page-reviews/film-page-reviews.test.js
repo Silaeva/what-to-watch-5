@@ -8,13 +8,13 @@ describe(`Should FilmPageReviews render correctly`, () => {
   it(`When load success`, () => {
     const tree = renderer
       .create(
-        <FilmPageReviews
-        filmId={1}
-        loadComments={noop}
-        comments={comments}
-        isCommentsLoading={false}
-        isCommentsLoadError={false}
-        />)
+          <FilmPageReviews
+            filmId={1}
+            loadComments={noop}
+            comments={comments}
+            isCommentsLoading={false}
+            isCommentsLoadError={false}
+          />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -23,13 +23,13 @@ describe(`Should FilmPageReviews render correctly`, () => {
   it(`When comments is loading`, () => {
     const tree = renderer
       .create(
-        <FilmPageReviews
-        filmId={1}
-        loadComments={noop}
-        comments={comments}
-        isCommentsLoading={true}
-        isCommentsLoadError={false}
-        />)
+          <FilmPageReviews
+            filmId={1}
+            loadComments={noop}
+            comments={comments}
+            isCommentsLoading={true}
+            isCommentsLoadError={false}
+          />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -38,13 +38,13 @@ describe(`Should FilmPageReviews render correctly`, () => {
   it(`When load error`, () => {
     const tree = renderer
       .create(
-        <FilmPageReviews
-        filmId={1}
-        loadComments={noop}
-        comments={comments}
-        isCommentsLoading={false}
-        isCommentsLoadError={true}
-        />)
+          <FilmPageReviews
+            filmId={1}
+            loadComments={noop}
+            comments={comments}
+            isCommentsLoading={false}
+            isCommentsLoadError={true}
+          />)
       .toJSON();
 
     expect(tree).toMatchSnapshot();

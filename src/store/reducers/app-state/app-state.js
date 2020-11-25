@@ -1,9 +1,8 @@
 import {ActionType} from "../../action";
-// import {filmsCount} from "../../../const";
 
 const initialState = {
   activeGenre: `All genres`,
-  isloading: true,
+  isLoading: true,
   isLoadingError: false
 };
 
@@ -15,7 +14,7 @@ const appState = (state = initialState, action) => {
       });
     case ActionType.TOGGLE_IS_LOADING:
       return Object.assign({}, state, {
-        isloading: action.payload
+        isLoading: action.payload
       });
     case ActionType.TOGGLE_IS_LOAD_ERROR:
       return Object.assign({}, state, {

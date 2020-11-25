@@ -5,7 +5,7 @@ exports[`Should AddReview render correctly 1`] = `
   className="movie-card movie-card--full"
   style={
     Object {
-      "backgroundColor": "#73B39A",
+      "backgroundColor": "#795433",
     }
   }
 >
@@ -16,8 +16,8 @@ exports[`Should AddReview render correctly 1`] = `
       className="movie-card__bg"
     >
       <img
-        alt="Fantastic Beasts: The Crimes of Grindelwald"
-        src="https://assets.htmlacademy.ru/intensives/javascript-3/film/background/bronson.jpg"
+        alt="Pulp Fiction"
+        src="https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg"
       />
     </div>
     <h1
@@ -43,7 +43,7 @@ exports[`Should AddReview render correctly 1`] = `
               href="/films/1"
               onClick={[Function]}
             >
-              Fantastic Beasts: The Crimes of Grindelwald
+              Pulp Fiction
             </a>
           </li>
           <li
@@ -63,9 +63,9 @@ exports[`Should AddReview render correctly 1`] = `
       className="movie-card__poster movie-card__poster--small"
     >
       <img
-        alt="Fantastic Beasts: The Crimes of Grindelwald"
+        alt="Pulp Fiction"
         height="327"
-        src="https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/bronson.jpg"
+        src="https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Pulp_Fiction.jpg"
         width="218"
       />
     </div>

@@ -1,7 +1,9 @@
-const formatFilmDuration = (ms) => {
-  const hours = Math.floor(ms / 3600000);
-  const minutes = Math.floor((ms % 3600000) / 60000);
-  return hours === 0 ? `${minutes}m` : `${hours}h ${minutes}m`;
+import {Rating} from "./const";
+
+const formatFilmDuration = (minutes) => {
+  const hours = Math.floor(minutes / 60);
+  const mins = Math.floor(minutes % 60);
+  return hours === 0 ? `${mins}m` : `${hours}h ${mins}m`;
 };
 
 const formatDate = (date) => {
@@ -20,15 +22,15 @@ const getRating = (a, b) => {
 const getRatingLevel = (score) => {
   let ratingLevel = ``;
   if (score < 3) {
-    ratingLevel = `Bad`;
+    ratingLevel = Rating.BAD;
   } else if (score >= 3 && score < 5) {
-    ratingLevel = `Normal`;
+    ratingLevel = Rating.NORMAL;
   } else if (score >= 8 && score < 10) {
-    ratingLevel = `Good`;
+    ratingLevel = Rating.GOOD;
   } else if (score >= 8 && score < 10) {
-    ratingLevel = `Very Good`;
+    ratingLevel = Rating.VERY_GOOD;
   } else if (score >= 10) {
-    ratingLevel = `Awesome`;
+    ratingLevel = Rating.AWESOME;
   }
   return ratingLevel;
 };

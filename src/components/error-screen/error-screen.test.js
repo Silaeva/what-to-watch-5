@@ -5,7 +5,7 @@ import ErrorScreen from "./error-screen";
 it(`Should ErrorScreen render correctly`, () => {
   const tree = renderer
     .create(
-      <ErrorScreen />)
+        <ErrorScreen />)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

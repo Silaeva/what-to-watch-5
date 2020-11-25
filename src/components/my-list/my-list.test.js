@@ -19,7 +19,7 @@ describe(`Should MyList render correctly`, () => {
           isFavoritesLoading={false}
           isFavoritesLoadError={false}
         />
-      )
+    )
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -35,7 +35,7 @@ describe(`Should MyList render correctly`, () => {
           isFavoritesLoading={true}
           isFavoritesLoadError={false}
         />
-      )
+    )
       .toJSON();
 
     expect(tree).toMatchSnapshot();
@@ -51,7 +51,7 @@ describe(`Should MyList render correctly`, () => {
           isFavoritesLoading={false}
           isFavoritesLoadError={true}
         />
-      )
+    )
       .toJSON();
 
     expect(tree).toMatchSnapshot();

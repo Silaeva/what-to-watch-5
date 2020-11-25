@@ -50,7 +50,7 @@ exports[`Should FilmPageDetails render correctly 1`] = `
       <span
         className="movie-card__details-value"
       >
-        153
+        2h 33m
       </span>
     </p>
     <p

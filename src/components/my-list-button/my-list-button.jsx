@@ -46,12 +46,12 @@ const MyListButton = (props) => {
 };
 
 MyListButton.propTypes = {
-  id: PropTypes.number.isRequired,
-  isFavorite: PropTypes.bool.isRequired,
-  onMyListClick: PropTypes.func.isRequired,
-  authorizationStatus: PropTypes.string.isRequired,
-  isDataSending: PropTypes.bool.isRequired,
-  isDataSendError: PropTypes.bool.isRequired
+  id: PropTypes.number,
+  isFavorite: PropTypes.bool,
+  onMyListClick: PropTypes.func,
+  authorizationStatus: PropTypes.string,
+  isDataSending: PropTypes.bool,
+  isDataSendError: PropTypes.bool
 };
 
 const mapStateToProps = ({DATA, USER}) => ({

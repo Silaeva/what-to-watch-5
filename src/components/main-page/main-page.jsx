@@ -83,13 +83,13 @@ const MainPage = (props) => {
 
 MainPage.propTypes = {
   promoFilm: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    image: PropTypes.string.isRequired,
-    bgImage: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired,
-    isFavorite: PropTypes.bool.isRequired
+    title: PropTypes.string,
+    genre: PropTypes.string,
+    year: PropTypes.number,
+    image: PropTypes.string,
+    bgImage: PropTypes.string,
+    id: PropTypes.number,
+    isFavorite: PropTypes.bool
   }),
   onFilmCardClick: PropTypes.func.isRequired
 };

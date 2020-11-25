@@ -13,12 +13,12 @@ jest.mock(`../my-list-button/my-list-button`, () => `MyListButton`);
 it(`Should MainPage render correctly`, () => {
   const tree = renderer
     .create(
-      <BrowserRouter>
-        <MainPage
-          promoFilm={films[0]}
-          onFilmCardClick={noop}
-        />
-      </BrowserRouter>)
+        <BrowserRouter>
+          <MainPage
+            promoFilm={films[0]}
+            onFilmCardClick={noop}
+          />
+        </BrowserRouter>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

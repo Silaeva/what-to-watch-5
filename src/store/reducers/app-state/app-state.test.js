@@ -4,7 +4,7 @@ import {genre} from "../../../test-data";
 
 const mockInitialState = {
   activeGenre: `All genres`,
-  isloading: true,
+  isLoading: true,
   isLoadingError: false
 };
 

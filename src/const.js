@@ -20,4 +20,12 @@ const StatusCode = {
   REMOVE: 0
 };
 
-export {filmsCount, FilmTab, AuthorizationStatus, StatusCode};
+const Rating = {
+  BAD: `Bad`,
+  NORMAL: `Normal`,
+  GOOD: `Good`,
+  VERY_GOOD: `Very Good`,
+  AWESOME: `Awesome`
+};
+
+export {filmsCount, FilmTab, AuthorizationStatus, StatusCode, Rating};
