@@ -14,6 +14,7 @@ import {AppRoute} from "../../route";
 import {connect} from "react-redux";
 import {fetchFilmById} from "../../store/api-actions";
 import {setIsFilmByIdLoading} from "../../store/action";
+import filmProp from "../../film-prop";
 
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
 import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
@@ -119,19 +120,10 @@ const FilmPage = (props) => {
 FilmPage.propTypes = {
   currentFilmId: PropTypes.number.isRequired,
   onFilmCardClick: PropTypes.func.isRequired,
-  films: PropTypes.array.isRequired,
+  films: PropTypes.arrayOf(filmProp),
   authorizationStatus: PropTypes.string.isRequired,
   loadFilm: PropTypes.func.isRequired,
-  filmById: PropTypes.shape({
-    title: PropTypes.string,
-    genre: PropTypes.string,
-    year: PropTypes.number,
-    image: PropTypes.string,
-    bgImage: PropTypes.string,
-    id: PropTypes.number,
-    isFavorite: PropTypes.bool,
-    bgColor: PropTypes.string
-  }),
+  filmById: filmProp,
   isFilmByIdLoading: PropTypes.bool.isRequired,
   isFilmByIdLoadError: PropTypes.bool.isRequired
 };

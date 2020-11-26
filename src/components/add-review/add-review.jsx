@@ -6,6 +6,7 @@ import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import {connect} from "react-redux";
 import {AppRoute} from "../../route";
+import filmProp from "../../film-prop";
 
 import withUserReview from "../../hocs/with-user-review/with-user-review";
 
@@ -62,11 +63,7 @@ const AddReview = (props) => {
 
 AddReview.propTypes = {
   currentFilmId: PropTypes.number.isRequired,
-  films: PropTypes.arrayOf(PropTypes.shape({
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    bgImage: PropTypes.string.isRequired
-  }))
+  films: PropTypes.arrayOf(filmProp)
 };
 
 const mapStateToProps = ({DATA}) => ({

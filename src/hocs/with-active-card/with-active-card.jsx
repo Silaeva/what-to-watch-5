@@ -15,6 +15,11 @@ const withActiveCard = (Component) => {
       this._handleMouseLeave = this._handleMouseLeave.bind(this);
     }
 
+    componentWillUnmount() {
+      clearTimeout(this._hoverTimeout);
+      this._hoverTimeout = null;
+    }
+
     _handleActiveCard(id) {
       this._hoverTimeout = setTimeout(() =>
         this.setState({
@@ -29,11 +34,6 @@ const withActiveCard = (Component) => {
       this.setState({
         activeCard: -1
       });
-    }
-
-    componentWillUnmount() {
-      clearTimeout(this._hoverTimeout);
-      this._hoverTimeout = null;
     }
 
     render() {

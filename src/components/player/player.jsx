@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {getElapsedTime} from "../../utils";
+import filmProp from "../../film-prop";
 
 const Player = (props) => {
   const {duration, progress, onPlayBtnClick, onFullscreenClick, renderPlayer, films, promoFilm, currentFilmId, isPlaying} = props;
@@ -73,8 +74,8 @@ Player.propTypes = {
   onFullscreenClick: PropTypes.func.isRequired,
   renderPlayer: PropTypes.func.isRequired,
   currentFilmId: PropTypes.number.isRequired,
-  films: PropTypes.array.isRequired,
-  promoFilm: PropTypes.object.isRequired,
+  films: PropTypes.arrayOf(filmProp),
+  promoFilm: filmProp,
   isPlaying: PropTypes.bool.isRequired
 };
 

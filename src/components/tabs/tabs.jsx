@@ -5,6 +5,7 @@ import FilmPageDetails from '../film-page-details/film-page-details';
 import FilmPageReviews from '../film-page-reviews/film-page-reviews';
 import {PropTypes} from 'prop-types';
 import {FilmTab} from "../../const";
+import filmProp from "../../film-prop";
 
 const Tabs = (props) => {
   const {film, activeTab, handleActiveTab} = props;
@@ -72,19 +73,7 @@ const Tabs = (props) => {
 };
 
 Tabs.propTypes = {
-  film: PropTypes.shape({
-    rating: PropTypes.shape({
-      score: PropTypes.number.isRequired,
-      count: PropTypes.number.isRequired
-    }),
-    description: PropTypes.string.isRequired,
-    director: PropTypes.string.isRequired,
-    actors: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-    year: PropTypes.number.isRequired,
-    id: PropTypes.number.isRequired,
-    duration: PropTypes.number.isRequired,
-  }),
+  film: filmProp,
   activeTab: PropTypes.string.isRequired,
   handleActiveTab: PropTypes.func.isRequired
 };

@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {changeFilter, clearShownFilms} from "../../store/action";
+import filmProp from "../../film-prop";
 
 const GenresList = (props) => {
   const {films, activeGenre, onGenreClick} = props;
@@ -46,7 +47,7 @@ const GenresList = (props) => {
 };
 
 GenresList.propTypes = {
-  films: PropTypes.array.isRequired,
+  films: PropTypes.arrayOf(filmProp),
   activeGenre: PropTypes.string.isRequired,
   onGenreClick: PropTypes.func.isRequired,
 };

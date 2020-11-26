@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import FilmCard from "../film-card/film-card";
+import filmProp from "../../film-prop";
 
 const FilmCardList = (props) => {
   const {films, onFilmCardClick, handleActiveCard, handleMouseLeave, activeCard} = props;
@@ -28,11 +29,7 @@ const FilmCardList = (props) => {
 
 FilmCardList.propTypes = {
   onFilmCardClick: PropTypes.func.isRequired,
-  films: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired
-  })),
+  films: PropTypes.arrayOf(filmProp),
   handleActiveCard: PropTypes.func.isRequired,
   handleMouseLeave: PropTypes.func.isRequired,
   activeCard: PropTypes.number.isRequired

@@ -32,8 +32,7 @@ it(`Reducer without additional parameters should return initial state`, () => {
   expect(filmsData(void 0, {})).toEqual(mockInitialState);
 });
 
-
-describe(`Reducer should update state`, () => {
+describe(`Film-data reducer should update state`, () => {
   it(`by load films`, () => {
     expect(filmsData(mockInitialState, {
       type: ActionType.LOAD_FILMS,
@@ -93,6 +92,78 @@ describe(`Reducer should update state`, () => {
       type: ActionType.CLEAR_SHOWN_FILMS
     })).toEqual(Object.assign({}, mockInitialState, {
       shownFilmsNumber: filmsCount.PER_STEP
+    }));
+  });
+
+  it(`when favorite films finished loading`, () => {
+    expect(filmsData(mockInitialState, {
+      type: ActionType.SET_FAVORITES_IS_LOADING,
+      payload: false
+    })).toEqual(Object.assign({}, mockInitialState, {
+      isFavoritesLoading: false
+    }));
+  });
+
+  it(`on favorite films load error`, () => {
+    expect(filmsData(mockInitialState, {
+      type: ActionType.SET_FAVORITES_LOAD_ERROR,
+      payload: true
+    })).toEqual(Object.assign({}, mockInitialState, {
+      isFavoritesLoadError: true
+    }));
+  });
+
+  it(`when comments finished loading`, () => {
+    expect(filmsData(mockInitialState, {
+      type: ActionType.SET_COMMENTS_IS_LOADING,
+      payload: false
+    })).toEqual(Object.assign({}, mockInitialState, {
+      isCommentsLoading: false
+    }));
+  });
+
+  it(`on comments load error`, () => {
+    expect(filmsData(mockInitialState, {
+      type: ActionType.SET_COMMENTS_LOAD_ERROR,
+      payload: true
+    })).toEqual(Object.assign({}, mockInitialState, {
+      isCommentsLoadError: true
+    }));
+  });
+
+  it(`when data is sending`, () => {
+    expect(filmsData(mockInitialState, {
+      type: ActionType.SET_DATA_IS_SENDING,
+      payload: true
+    })).toEqual(Object.assign({}, mockInitialState, {
+      isDataSending: true
+    }));
+  });
+
+  it(`on data send error`, () => {
+    expect(filmsData(mockInitialState, {
+      type: ActionType.SET_DATA_SEND_ERROR,
+      payload: true
+    })).toEqual(Object.assign({}, mockInitialState, {
+      isDataSendError: true
+    }));
+  });
+
+  it(`when film_by_id finished loading`, () => {
+    expect(filmsData(mockInitialState, {
+      type: ActionType.SET_FILM_BY_ID_LOADING,
+      payload: false
+    })).toEqual(Object.assign({}, mockInitialState, {
+      isFilmByIdLoading: false
+    }));
+  });
+
+  it(`on film_by_id load error`, () => {
+    expect(filmsData(mockInitialState, {
+      type: ActionType.SET_FILM_BY_ID_LOAD_ERROR,
+      payload: true
+    })).toEqual(Object.assign({}, mockInitialState, {
+      isFilmByIdLoadError: true
     }));
   });
 });

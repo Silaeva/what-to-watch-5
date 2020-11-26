@@ -6,6 +6,7 @@ import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
 import {connect} from "react-redux";
 import {fetchFavoriteFilms} from "../../store/api-actions";
+import filmProp from "../../film-prop";
 
 import withActiveCard from "../../hocs/with-active-card/with-active-card";
 
@@ -60,7 +61,7 @@ const MyList = (props) => {
 };
 
 MyList.propTypes = {
-  favoriteFilms: PropTypes.array.isRequired,
+  favoriteFilms: PropTypes.arrayOf(filmProp),
   onFilmCardClick: PropTypes.func.isRequired,
   isFavoritesLoading: PropTypes.bool.isRequired,
   isFavoritesLoadError: PropTypes.bool.isRequired,
