@@ -50,10 +50,7 @@ const FilmCardList = (props) => {
 
 FilmCardList.propTypes = {
   onFilmCardClick: PropTypes.func.isRequired,
-  films: PropTypes.arrayOf(filmProp),
-  // handleActiveCard: PropTypes.func.isRequired,
-  // handleMouseLeave: PropTypes.func.isRequired,
-  // activeCard: PropTypes.number.isRequired
+  films: PropTypes.arrayOf(filmProp)
 };
 
 export default FilmCardList;

@@ -5,7 +5,7 @@ import FilmCardList from "../film-card-list/film-card-list";
 import LogoHeader from "../logo-header/logo-header";
 import UserBlock from "../user-block/user-block";
 import PageFooter from "../page-footer/page-footer";
-import Tabs from "../tabs/tabs";
+import Tabs from "../tabs/tabs-container";
 import MyListButton from "../my-list-button/my-list-button";
 import Loading from "../loading/loading";
 import ErrorScreen from "../error-screen/error-screen";
@@ -18,7 +18,6 @@ import filmProp from "../../film-prop";
 
 const FilmPage = (props) => {
   const {films, onFilmCardClick, currentFilmId, authorizationStatus, loadFilm, filmById, isFilmByIdLoading, isFilmByIdLoadError} = props;
-
 
   useEffect(() => {
     loadFilm(currentFilmId);

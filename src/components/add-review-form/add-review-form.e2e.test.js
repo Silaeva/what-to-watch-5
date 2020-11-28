@@ -12,10 +12,13 @@ describe(`AddReviewForm callback should be called on`, () => {
 
     const addReviewForm = mount(
         <AddReviewForm
-          currentFilmId={1}
-          onPostBtnClick={noop}
           isDataSending={false}
           isDataSendError={false}
+          rating={``}
+          isReviewValid={true}
+          handleRatingChange={handleRatingChange}
+          handleCommentChange={noop}
+          handlePostBtnClick={noop}
         />
     );
 
@@ -32,10 +35,13 @@ describe(`AddReviewForm callback should be called on`, () => {
 
     const addReviewForm = mount(
         <AddReviewForm
-          currentFilmId={1}
-          onPostBtnClick={noop}
           isDataSending={false}
           isDataSendError={false}
+          rating={``}
+          isReviewValid={true}
+          handleRatingChange={noop}
+          handleCommentChange={handleCommentChange}
+          handlePostBtnClick={noop}
         />
     );
 
@@ -49,23 +55,24 @@ describe(`AddReviewForm callback should be called on`, () => {
 
   it(`submit`, () => {
     const onPostBtnClick = jest.fn();
-    const formSendPrevention = jest.fn();
 
     const addReviewForm = mount(
         <AddReviewForm
-          currentFilmId={1}
-          onPostBtnClick={onPostBtnClick}
           isDataSending={false}
           isDataSendError={false}
+          rating={``}
+          isReviewValid={true}
+          handleRatingChange={noop}
+          handleCommentChange={noop}
+          handlePostBtnClick={onPostBtnClick}
         />
     );
 
     const postButton = addReviewForm.find(`.add-review__btn`);
 
-    postButton.simulate(`click`, {preventDefault: formSendPrevention});
+    postButton.simulate(`click`, {preventDefault() {}});
 
     expect(onPostBtnClick).toHaveBeenCalledTimes(1);
-    expect(formSendPrevention).toHaveBeenCalledTimes(1);
   });
 });
 

@@ -2,16 +2,19 @@ import React from "react";
 import renderer from "react-test-renderer";
 import {AddReviewForm} from "./add-review-form";
 import {noop} from "../../test-data";
-
+// isDataSending, isDataSendError, isReviewValid, handleRatingChange, handleCommentChange, handlePostBtnClick, rating
 describe(`Should AddReviewForm render correctly`, () => {
   it(`When data is sending`, () => {
     const tree = renderer
       .create(
           <AddReviewForm
-            currentFilmId={1}
-            onPostBtnClick={noop}
             isDataSending={true}
             isDataSendError={false}
+            rating={``}
+            isReviewValid={true}
+            handleRatingChange={noop}
+            handleCommentChange={noop}
+            handlePostBtnClick={noop}
           />)
       .toJSON();
 
@@ -22,10 +25,13 @@ describe(`Should AddReviewForm render correctly`, () => {
     const tree = renderer
       .create(
           <AddReviewForm
-            currentFilmId={1}
-            onPostBtnClick={noop}
             isDataSending={false}
             isDataSendError={true}
+            rating={``}
+            isReviewValid={true}
+            handleRatingChange={noop}
+            handleCommentChange={noop}
+            handlePostBtnClick={noop}
           />)
       .toJSON();
 

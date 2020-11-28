@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should PlayerContainer render correctly 1`] = `
+<Player
+  currentFilmId={1}
+  duration={0}
+  isPlaying={true}
+  onFullscreenClick={[Function]}
+  onPlayBtnClick={[Function]}
+  progress={0}
+  renderPlayer={[Function]}
+/>
+`;

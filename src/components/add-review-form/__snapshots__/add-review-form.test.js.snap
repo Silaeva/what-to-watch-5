@@ -116,7 +116,7 @@ exports[`Should AddReviewForm render correctly On error data sending 1`] = `
     >
       <button
         className="add-review__btn"
-        disabled={true}
+        disabled={false}
         onClick={[Function]}
         type="submit"
       >
@@ -252,7 +252,7 @@ exports[`Should AddReviewForm render correctly When data is sending 1`] = `
     >
       <button
         className="add-review__btn"
-        disabled={true}
+        disabled={false}
         onClick={[Function]}
         type="submit"
       >

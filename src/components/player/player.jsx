@@ -1,4 +1,4 @@
-import React, {useState, useEffect, createRef, useCallback} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
@@ -6,41 +6,7 @@ import {getElapsedTime} from "../../utils";
 import filmProp from "../../film-prop";
 
 const Player = (props) => {
-  const {films, promoFilm, currentFilmId} = props;
-
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [duration, setDuration] = useState(0);
-  const [progress, setProgress] = useState(0);
-
-  const videoRef = createRef();
-
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.oncanplay = () => setDuration(Math.floor(videoRef.current.duration));
-      videoRef.current.ontimeupdate = () => setProgress(Math.floor(videoRef.current.currentTime));
-
-      if (isPlaying) {
-        videoRef.current.play();
-      } else {
-        videoRef.current.pause();
-      }
-    }
-
-    return () => {
-      if (videoRef.current) {
-        videoRef.current.oncanplay = null;
-        videoRef.current.ontimeupdate = null;
-      }
-    };
-  }, [isPlaying, videoRef]);
-
-  const onPlayBtnClick = useCallback(() => {
-    setIsPlaying(!isPlaying);
-  }, [isPlaying]);
-
-  const onFullscreenClick = useCallback(() => {
-    videoRef.current.requestFullscreen();
-  });
+  const {films, promoFilm, currentFilmId, duration, progress, onPlayBtnClick, onFullscreenClick, renderPlayer, isPlaying} = props;
 
   const getCurrentFilm = () => {
     if (currentFilmId === promoFilm.id) {
@@ -49,14 +15,12 @@ const Player = (props) => {
     return films.find((film) => film.id === currentFilmId);
   };
 
-  const currentFilm = getCurrentFilm();
-
   const togglerPosition = progress / duration * 100;
 
   return (
     <div className="player">
 
-      <video ref={videoRef} src={currentFilm.srcVideo} className="player__video" poster={currentFilm.previewImage}></video>
+      {renderPlayer(getCurrentFilm())}
 
       <Link to="/" type="button" className="player__exit" >Exit</Link>
 
@@ -106,7 +70,13 @@ const Player = (props) => {
 Player.propTypes = {
   currentFilmId: PropTypes.number.isRequired,
   films: PropTypes.arrayOf(filmProp),
-  promoFilm: filmProp
+  promoFilm: filmProp,
+  duration: PropTypes.number.isRequired,
+  progress: PropTypes.number.isRequired,
+  onPlayBtnClick: PropTypes.func.isRequired,
+  onFullscreenClick: PropTypes.func.isRequired,
+  renderPlayer: PropTypes.func.isRequired,
+  isPlaying: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = ({DATA}) => ({

@@ -74,7 +74,11 @@ exports[`Should AddReview render correctly 1`] = `
     className="add-review"
   >
     <AddReviewForm
-      currentFilmId={1}
+      handleCommentChange={[Function]}
+      handlePostBtnClick={[Function]}
+      handleRatingChange={[Function]}
+      isReviewValid={false}
+      rating=""
     />
   </div>
 </section>

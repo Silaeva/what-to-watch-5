@@ -1,14 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should Player render correctly 1`] = `
+exports[`Should Player render correctly On pause 1`] = `
 <div
   className="player"
 >
-  <video
-    className="player__video"
-    poster="https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg"
-    src="http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4"
-  />
   <a
     className="player__exit"
     href="/"
@@ -28,14 +23,14 @@ exports[`Should Player render correctly 1`] = `
       >
         <progress
           className="player__progress"
-          max={0}
-          value={0}
+          max={90}
+          value={50}
         />
         <div
           className="player__toggler"
           style={
             Object {
-              "left": "NaN%",
+              "left": "55.55555555555556%",
             }
           }
         >
@@ -45,7 +40,99 @@ exports[`Should Player render correctly 1`] = `
       <div
         className="player__time-value"
       >
-        00:00
+        00:40
+      </div>
+    </div>
+    <div
+      className="player__controls-row"
+    >
+      <button
+        className="player__play"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          height="19"
+          viewBox="0 0 19 19"
+          width="19"
+        >
+          <use
+            xlinkHref="#play-s"
+          />
+        </svg>
+        <span>
+          Play
+        </span>
+      </button>
+      <div
+        className="player__name"
+      >
+        Transpotting
+      </div>
+      <button
+        className="player__full-screen"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          height="27"
+          viewBox="0 0 27 27"
+          width="27"
+        >
+          <use
+            xlinkHref="#full-screen"
+          />
+        </svg>
+        <span>
+          Full screen
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Should Player render correctly While playing 1`] = `
+<div
+  className="player"
+>
+  <a
+    className="player__exit"
+    href="/"
+    onClick={[Function]}
+    type="button"
+  >
+    Exit
+  </a>
+  <div
+    className="player__controls"
+  >
+    <div
+      className="player__controls-row"
+    >
+      <div
+        className="player__time"
+      >
+        <progress
+          className="player__progress"
+          max={90}
+          value={50}
+        />
+        <div
+          className="player__toggler"
+          style={
+            Object {
+              "left": "55.55555555555556%",
+            }
+          }
+        >
+          Toggler
+        </div>
+      </div>
+      <div
+        className="player__time-value"
+      >
+        00:40
       </div>
     </div>
     <div

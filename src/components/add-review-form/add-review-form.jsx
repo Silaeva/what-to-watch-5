@@ -1,36 +1,11 @@
-import React, {useState, useCallback} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import {sendComment} from "../../store/api-actions";
-import {setDataIsSending} from "../../store/action";
 
 const STAR_NUMBERS = [`1`, `2`, `3`, `4`, `5`];
 
 const AddReviewForm = (props) => {
-  const {onPostBtnClick, currentFilmId, isDataSending, isDataSendError} = props;
-
-  const [rating, setRating] = useState(``);
-  const [comment, setComment] = useState(``);
-  const [isReviewValid, setIsReviewValid] = useState(false);
-
-  const handleRatingChange = useCallback((evt) => setRating(evt.target.value));
-  const handleCommentChange = useCallback(
-      (evt) => {
-        setComment(evt.target.value);
-        setIsReviewValid(evt.target.value.length >= 50 && evt.target.value.length <= 400);
-      }
-  );
-
-  const handlePostBtnClick = (evt) => {
-    evt.preventDefault();
-
-    onPostBtnClick(
-        currentFilmId,
-        {
-          rating,
-          comment
-        });
-  };
+  const {isDataSending, isDataSendError, isReviewValid, handleRatingChange, handleCommentChange, handlePostBtnClick, rating} = props;
 
   const getMessage = () => {
     if (isDataSending) {
@@ -99,10 +74,13 @@ const AddReviewForm = (props) => {
 };
 
 AddReviewForm.propTypes = {
-  onPostBtnClick: PropTypes.func.isRequired,
-  currentFilmId: PropTypes.number.isRequired,
+  rating: PropTypes.string.isRequired,
   isDataSending: PropTypes.bool.isRequired,
-  isDataSendError: PropTypes.bool.isRequired
+  isDataSendError: PropTypes.bool.isRequired,
+  isReviewValid: PropTypes.bool.isRequired,
+  handleRatingChange: PropTypes.func.isRequired,
+  handleCommentChange: PropTypes.func.isRequired,
+  handlePostBtnClick: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({DATA}) => ({
@@ -110,12 +88,5 @@ const mapStateToProps = ({DATA}) => ({
   isDataSendError: DATA.isDataSendError
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onPostBtnClick(filmId, commentData) {
-    dispatch(setDataIsSending(true));
-    dispatch(sendComment(filmId, commentData));
-  }
-});
-
 export {AddReviewForm};
-export default connect(mapStateToProps, mapDispatchToProps)(AddReviewForm);
+export default connect(mapStateToProps)(AddReviewForm);

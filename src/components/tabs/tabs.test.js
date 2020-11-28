@@ -1,7 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import Tabs from "./tabs";
-import {films} from "../../test-data";
+import {films, noop} from "../../test-data";
+import {FilmTab} from "../../const";
 
 jest.mock(`../film-page-overview/film-page-overview`, () => `FilmPageOverview`);
 jest.mock(`../film-page-details/film-page-details`, () => `FilmPageDetails`);
@@ -12,6 +13,8 @@ it(`Should Tabs render correctly`, () => {
       .create(
           <Tabs
             film={films[0]}
+            handleActiveTab={noop}
+            activeTab={FilmTab.OVERVIEW}
           />)
       .toJSON();
 
