@@ -13,9 +13,6 @@ describe(`SignIn callback should be called on`, () => {
     const wrapper = shallow(
         <SignIn
           onSubmit={onSignInSubmit}
-          handleChange={noop}
-          email={`email@.mail.com`}
-          password={`srgvdgsvd`}
         />
     );
 
@@ -26,21 +23,19 @@ describe(`SignIn callback should be called on`, () => {
 
   it(`input change`, () => {
     const onInputChange = jest.fn();
+    const mockEvent = {target: {}};
 
     const wrapper = shallow(
         <SignIn
           onSubmit={noop}
-          handleChange={onInputChange}
-          email={`email@.mail.com`}
-          password={`srgvdgsvd`}
         />
     );
 
     const inputEmail = wrapper.find(`.sign-in__input`).at(0);
     const inputPassword = wrapper.find(`.sign-in__input`).at(1);
 
-    inputEmail.simulate(`change`);
-    inputPassword.simulate(`change`);
+    inputEmail.simulate(`change`, mockEvent);
+    inputPassword.simulate(`change`, mockEvent);
     expect(onInputChange).toHaveBeenCalledTimes(2);
   });
 });

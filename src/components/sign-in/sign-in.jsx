@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useCallback} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import PageFooter from "../page-footer/page-footer";
@@ -6,7 +6,18 @@ import LogoHeader from "../logo-header/logo-header";
 import {login} from "../../store/api-actions";
 
 const SignIn = (props) => {
-  const {onSubmit, handleChange, email, password} = props;
+  const {onSubmit} = props;
+
+  const [input, setInput] = useState({
+    email: ``,
+    password: ``
+  });
+
+  const {email, password} = input;
+
+  const handleChange = useCallback(
+      (evt) => setInput(Object.assign({}, input, {[evt.target.name]: evt.target.value}))
+  );
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -57,10 +68,7 @@ const SignIn = (props) => {
 };
 
 SignIn.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  email: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired
+  onSubmit: PropTypes.func.isRequired
 };
 
 const mapDispatchToProps = (dispatch) => ({

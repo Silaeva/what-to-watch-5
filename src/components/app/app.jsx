@@ -6,7 +6,7 @@ import SignIn from "../sign-in/sign-in";
 import MyList from "../my-list/my-list";
 import FilmPage from "../film-page/film-page";
 import AddReview from "../add-review/add-review";
-import VideoPlayer from "../player/player";
+import Player from "../player/player";
 import Loading from "../loading/loading";
 import ErrorScreen from "../error-screen/error-screen";
 import PrivateRoute from "../private-route/private-route";
@@ -14,11 +14,11 @@ import browserHistory from "../../browser-history";
 import {AppRoute} from '../../route';
 import {connect} from "react-redux";
 
-import withFullscreenPlayer from "../../hocs/with-fullscreen-player/with-fullscreen-player";
-import withLoginInfo from "../../hocs/with-login-info/with-login-info";
+// import withFullscreenPlayer from "../../hocs/with-fullscreen-player/with-fullscreen-player";
+// import withLoginInfo from "../../hocs/with-login-info/with-login-info";
 
-const Player = withFullscreenPlayer(VideoPlayer);
-const SignInWrapped = withLoginInfo(SignIn);
+// const Player = withFullscreenPlayer(VideoPlayer);
+// const SignInWrapped = withLoginInfo(SignIn);
 
 const App = (props) => {
   const {isLoading, isLoadingError, authInProgress} = props;
@@ -45,7 +45,7 @@ const App = (props) => {
           )} />
 
         <Route exact path={AppRoute.LOGIN}>
-          <SignInWrapped />
+          <SignIn />
         </Route>
 
         <PrivateRoute

@@ -86,7 +86,6 @@ exports[`Should MyList render correctly When load success 1`] = `
       Catalog
     </h2>
     <FilmCardList
-      activeCard={-1}
       films={
         Array [
           Object {
@@ -343,8 +342,6 @@ exports[`Should MyList render correctly When load success 1`] = `
           },
         ]
       }
-      handleActiveCard={[Function]}
-      handleMouseLeave={[Function]}
       onFilmCardClick={[Function]}
     />
   </section>

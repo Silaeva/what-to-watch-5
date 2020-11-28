@@ -129,6 +129,29 @@ exports[`Should MainPage render correctly 1`] = `
       <GenresList />
       <FilmCardListWithBtn
         onFilmCardClick={[Function]}
+        promoFilm={
+          Object {
+            "actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
+            "bgColor": "#795433",
+            "bgImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/background/Pulp_Fiction.jpg",
+            "description": "The lives of two mob hitmen, a boxer, a gangster & his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.",
+            "director": "Quentin Tarantino",
+            "duration": 153,
+            "genre": "Crime",
+            "id": 1,
+            "image": "https://assets.htmlacademy.ru/intensives/javascript-3/film/poster/Pulp_Fiction.jpg",
+            "isFavorite": false,
+            "previewImage": "https://assets.htmlacademy.ru/intensives/javascript-3/film/preview/pulp-fiction.jpg",
+            "previewVideo": "https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm",
+            "rating": Object {
+              "count": 163242,
+              "score": 1.5,
+            },
+            "srcVideo": "http://peach.themazzone.com/durian/movies/sintel-1024-surround.mp4",
+            "title": "Pulp Fiction",
+            "year": 1994,
+          }
+        }
       />
     </section>
     <PageFooter />

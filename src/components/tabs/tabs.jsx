@@ -1,15 +1,20 @@
-import React from "react";
+import React, {useState, useCallback} from "react";
 import {Redirect} from 'react-router-dom';
 import FilmPageOverview from '../film-page-overview/film-page-overview';
 import FilmPageDetails from '../film-page-details/film-page-details';
 import FilmPageReviews from '../film-page-reviews/film-page-reviews';
-import {PropTypes} from 'prop-types';
 import {FilmTab} from "../../const";
 import filmProp from "../../film-prop";
 
 const Tabs = (props) => {
-  const {film, activeTab, handleActiveTab} = props;
+  const {film} = props;
   const {genre, year, rating, description, director, actors, duration, id} = film;
+
+  const [activeTab, setActiveTab] = useState(FilmTab.OVERVIEW);
+
+  const handleActiveTab = useCallback((tab) => {
+    setActiveTab(tab);
+  }, []);
 
   const getFilmPageContent = () => {
     switch (activeTab) {
@@ -73,9 +78,7 @@ const Tabs = (props) => {
 };
 
 Tabs.propTypes = {
-  film: filmProp,
-  activeTab: PropTypes.string.isRequired,
-  handleActiveTab: PropTypes.func.isRequired
+  film: filmProp
 };
 
 export default Tabs;

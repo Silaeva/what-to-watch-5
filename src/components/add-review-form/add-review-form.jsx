@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useCallback} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import {sendComment} from "../../store/api-actions";
@@ -7,7 +7,19 @@ import {setDataIsSending} from "../../store/action";
 const STAR_NUMBERS = [`1`, `2`, `3`, `4`, `5`];
 
 const AddReviewForm = (props) => {
-  const {rating, comment, handleRatingChange, handleCommentChange, onPostBtnClick, currentFilmId, isDataSending, isDataSendError, isReviewValid} = props;
+  const {onPostBtnClick, currentFilmId, isDataSending, isDataSendError} = props;
+
+  const [rating, setRating] = useState(``);
+  const [comment, setComment] = useState(``);
+  const [isReviewValid, setIsReviewValid] = useState(false);
+
+  const handleRatingChange = useCallback((evt) => setRating(evt.target.value));
+  const handleCommentChange = useCallback(
+      (evt) => {
+        setComment(evt.target.value);
+        setIsReviewValid(evt.target.value.length >= 50 && evt.target.value.length <= 400);
+      }
+  );
 
   const handlePostBtnClick = (evt) => {
     evt.preventDefault();
@@ -87,15 +99,10 @@ const AddReviewForm = (props) => {
 };
 
 AddReviewForm.propTypes = {
-  rating: PropTypes.string.isRequired,
-  comment: PropTypes.string.isRequired,
-  handleRatingChange: PropTypes.func.isRequired,
-  handleCommentChange: PropTypes.func.isRequired,
   onPostBtnClick: PropTypes.func.isRequired,
   currentFilmId: PropTypes.number.isRequired,
   isDataSending: PropTypes.bool.isRequired,
-  isDataSendError: PropTypes.bool.isRequired,
-  isReviewValid: PropTypes.bool.isRequired,
+  isDataSendError: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = ({DATA}) => ({

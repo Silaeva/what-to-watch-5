@@ -2,7 +2,6 @@
 
 exports[`Should FilmCardListWithBtn render correctly With all films shown 1`] = `
 <FilmCardList
-  activeCard={-1}
   films={
     Array [
       Object {
@@ -515,8 +514,6 @@ exports[`Should FilmCardListWithBtn render correctly With all films shown 1`] = 
       },
     ]
   }
-  handleActiveCard={[Function]}
-  handleMouseLeave={[Function]}
   shownFilmsNumber={12}
 />
 `;
@@ -524,7 +521,6 @@ exports[`Should FilmCardListWithBtn render correctly With all films shown 1`] = 
 exports[`Should FilmCardListWithBtn render correctly With default films amount shown 1`] = `
 Array [
   <FilmCardList
-    activeCard={-1}
     films={
       Array [
         Object {
@@ -953,8 +949,6 @@ Array [
         },
       ]
     }
-    handleActiveCard={[Function]}
-    handleMouseLeave={[Function]}
     shownFilmsNumber={8}
   />,
   <ShowMoreButton />,

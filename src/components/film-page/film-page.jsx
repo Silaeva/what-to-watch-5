@@ -16,14 +16,9 @@ import {fetchFilmById} from "../../store/api-actions";
 import {setIsFilmByIdLoading} from "../../store/action";
 import filmProp from "../../film-prop";
 
-import withActiveCard from "../../hocs/with-active-card/with-active-card";
-import withActiveTab from "../../hocs/with-active-tab/with-active-tab";
-
-const FilmCardListWrapped = withActiveCard(FilmCardList);
-const TabsWrapped = withActiveTab(Tabs);
-
 const FilmPage = (props) => {
   const {films, onFilmCardClick, currentFilmId, authorizationStatus, loadFilm, filmById, isFilmByIdLoading, isFilmByIdLoadError} = props;
+
 
   useEffect(() => {
     loadFilm(currentFilmId);
@@ -96,7 +91,7 @@ const FilmPage = (props) => {
               <img src={image} alt={title} width="218" height="327" />
             </div>
 
-            <TabsWrapped film={filmById} />
+            <Tabs film={filmById} />
 
           </div>
         </div>
@@ -106,7 +101,7 @@ const FilmPage = (props) => {
         <section className="catalog catalog--like-this">
           <h2 className="catalog__title">More like this</h2>
 
-          <FilmCardListWrapped onFilmCardClick={onFilmCardClick} films={similarFilms} />
+          <FilmCardList onFilmCardClick={onFilmCardClick} films={similarFilms} />
 
         </section>
 

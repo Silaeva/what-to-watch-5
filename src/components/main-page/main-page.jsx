@@ -70,7 +70,7 @@ const MainPage = (props) => {
 
           <GenresList />
 
-          <FilmCardListWithBtn onFilmCardClick={onFilmCardClick} />
+          <FilmCardListWithBtn onFilmCardClick={onFilmCardClick} {...props} />
 
         </section>
 

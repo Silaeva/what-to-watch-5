@@ -11,9 +11,6 @@ it(`Should FilmPage render correctly`, () => {
     .create(
         <SignIn
           onSubmit={noop}
-          handleChange={noop}
-          email={`email@.mail.com`}
-          password={`srgvdgsvd`}
         />)
     .toJSON();
 

@@ -8,10 +8,6 @@ import {connect} from "react-redux";
 import {fetchFavoriteFilms} from "../../store/api-actions";
 import filmProp from "../../film-prop";
 
-import withActiveCard from "../../hocs/with-active-card/with-active-card";
-
-const FilmCardListWrapped = withActiveCard(FilmCardList);
-
 const MyList = (props) => {
   const {favoriteFilms, onFilmCardClick, getFavoriteFilms, isFavoritesLoading, isFavoritesLoadError} = props;
 
@@ -31,7 +27,7 @@ const MyList = (props) => {
     }
 
     return (
-      <FilmCardListWrapped films={favoriteFilms} onFilmCardClick={onFilmCardClick} />
+      <FilmCardList films={favoriteFilms} onFilmCardClick={onFilmCardClick} />
     );
   };
 

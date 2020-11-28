@@ -113,7 +113,6 @@ exports[`Should FilmPage render correctly When user authorised 1`] = `
           />
         </div>
         <Tabs
-          activeTab="Overview"
           film={
             Object {
               "actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
@@ -137,7 +136,6 @@ exports[`Should FilmPage render correctly When user authorised 1`] = `
               "year": 1994,
             }
           }
-          handleActiveTab={[Function]}
         />
       </div>
     </div>
@@ -154,7 +152,6 @@ exports[`Should FilmPage render correctly When user authorised 1`] = `
         More like this
       </h2>
       <FilmCardList
-        activeCard={-1}
         films={
           Array [
             Object {
@@ -243,8 +240,6 @@ exports[`Should FilmPage render correctly When user authorised 1`] = `
             },
           ]
         }
-        handleActiveCard={[Function]}
-        handleMouseLeave={[Function]}
         onFilmCardClick={[Function]}
       />
     </section>
@@ -358,7 +353,6 @@ exports[`Should FilmPage render correctly When user not authorised 1`] = `
           />
         </div>
         <Tabs
-          activeTab="Overview"
           film={
             Object {
               "actors": "John Travolta, Uma Thurman, Samuel L. Jackson",
@@ -382,7 +376,6 @@ exports[`Should FilmPage render correctly When user not authorised 1`] = `
               "year": 1994,
             }
           }
-          handleActiveTab={[Function]}
         />
       </div>
     </div>
@@ -399,7 +392,6 @@ exports[`Should FilmPage render correctly When user not authorised 1`] = `
         More like this
       </h2>
       <FilmCardList
-        activeCard={-1}
         films={
           Array [
             Object {
@@ -488,8 +480,6 @@ exports[`Should FilmPage render correctly When user not authorised 1`] = `
             },
           ]
         }
-        handleActiveCard={[Function]}
-        handleMouseLeave={[Function]}
         onFilmCardClick={[Function]}
       />
     </section>

@@ -3,7 +3,6 @@ import {configure, shallow} from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Tabs from "./tabs";
 import {films} from "../../test-data";
-import {FilmTab} from "../../const";
 
 configure({adapter: new Adapter()});
 
@@ -13,8 +12,6 @@ it(`Tabs callback should be called on tab click`, () => {
   const wrapper = shallow(
       <Tabs
         film={films[0]}
-        activeTab={FilmTab.OVERVIEW}
-        handleActiveTab={onTabClick}
       />
   );
 

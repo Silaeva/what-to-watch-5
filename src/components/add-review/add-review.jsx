@@ -8,10 +8,6 @@ import {connect} from "react-redux";
 import {AppRoute} from "../../route";
 import filmProp from "../../film-prop";
 
-import withUserReview from "../../hocs/with-user-review/with-user-review";
-
-const AddReviewFormWrapped = withUserReview(AddReviewForm);
-
 const AddReview = (props) => {
   const {films, currentFilmId} = props;
 
@@ -53,7 +49,7 @@ const AddReview = (props) => {
 
       <div className="add-review">
 
-        <AddReviewFormWrapped currentFilmId={currentFilmId} />
+        <AddReviewForm currentFilmId={currentFilmId} />
 
       </div>
 

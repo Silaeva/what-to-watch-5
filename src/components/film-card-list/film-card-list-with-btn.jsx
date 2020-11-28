@@ -5,10 +5,6 @@ import ShowMoreButton from "../show-more-button/show-more-button";
 import {connect} from "react-redux";
 import {getFilmsByGenre} from "../../store/selectors/selectors";
 
-import withActiveCard from "../../hocs/with-active-card/with-active-card";
-
-const FilmCardListWrapped = withActiveCard(FilmCardList);
-
 const FilmCardListWithBtn = (props) => {
   const {filteredFilms, shownFilmsNumber} = props;
 
@@ -16,7 +12,7 @@ const FilmCardListWithBtn = (props) => {
 
   return (
     <React.Fragment>
-      <FilmCardListWrapped films={renderedFilms} {...props} />
+      <FilmCardList films={renderedFilms} {...props} />
 
       {
         shownFilmsNumber < filteredFilms.length && <ShowMoreButton />

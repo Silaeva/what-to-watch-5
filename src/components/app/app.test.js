@@ -17,7 +17,7 @@ describe(`Should App render correctly`, () => {
     const tree = renderer
       .create(
           <App
-            isloading={false}
+            isLoading={false}
             isLoadingError={false}
             authInProgress={false}
           />)
@@ -30,7 +30,7 @@ describe(`Should App render correctly`, () => {
     const tree = renderer
       .create(
           <App
-            isloading={false}
+            isLoading={false}
             isLoadingError={false}
             authInProgress={true}
           />)
@@ -43,7 +43,7 @@ describe(`Should App render correctly`, () => {
     const tree = renderer
       .create(
           <App
-            isloading={true}
+            isLoading={true}
             isLoadingError={false}
             authInProgress={false}
           />)
@@ -56,7 +56,7 @@ describe(`Should App render correctly`, () => {
     const tree = renderer
       .create(
           <App
-            isloading={false}
+            isLoading={false}
             isLoadingError={true}
             authInProgress={false}
           />)

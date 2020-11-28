@@ -11,9 +11,6 @@ it(`Should FilmCardList render correctly`, () => {
         <FilmCardList
           films={films}
           onFilmCardClick={noop}
-          handleActiveCard={noop}
-          handleMouseLeave={noop}
-          activeCard={1}
         />)
     .toJSON();
 

@@ -12,15 +12,10 @@ describe(`AddReviewForm callback should be called on`, () => {
 
     const addReviewForm = mount(
         <AddReviewForm
-          rating={`1`}
-          comment={`comment`}
           currentFilmId={1}
-          handleRatingChange={handleRatingChange}
-          handleCommentChange={noop}
           onPostBtnClick={noop}
           isDataSending={false}
           isDataSendError={false}
-          isReviewValid={true}
         />
     );
 
@@ -37,15 +32,10 @@ describe(`AddReviewForm callback should be called on`, () => {
 
     const addReviewForm = mount(
         <AddReviewForm
-          rating={`1`}
-          comment={`comment`}
           currentFilmId={1}
-          handleRatingChange={noop}
-          handleCommentChange={handleCommentChange}
           onPostBtnClick={noop}
           isDataSending={false}
           isDataSendError={false}
-          isReviewValid={true}
         />
     );
 
@@ -63,15 +53,10 @@ describe(`AddReviewForm callback should be called on`, () => {
 
     const addReviewForm = mount(
         <AddReviewForm
-          rating={`1`}
-          comment={`comment`}
           currentFilmId={1}
-          handleRatingChange={noop}
-          handleCommentChange={noop}
           onPostBtnClick={onPostBtnClick}
           isDataSending={false}
           isDataSendError={false}
-          isReviewValid={true}
         />
     );
 
