@@ -48,5 +48,6 @@ git clone SSH-адрес_вашего_форка
 
 Репозиторий создан для обучения на профессиональном онлайн‑курсе «[React. Разработка сложных клиентских приложений](https://htmlacademy.ru/intensive/react)» от [HTML Academy](https://htmlacademy.ru).
 
+
 [travis-image]: https://travis-ci.com/htmlacademy-react/1078695-what-to-watch-5.svg?branch=master
 [travis-url]: https://travis-ci.com/htmlacademy-react/1078695-what-to-watch-5
